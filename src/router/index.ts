@@ -1,9 +1,9 @@
-import { createRouter, createWebHistory } from "vue-router";
+import { createRouter, createWebHashHistory } from "vue-router";
 import { routes } from "./guards";
 import { useAuthStore } from "@/composables/services/useAuthApi";
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+   history: createWebHashHistory(),
   routes,
 });
 
