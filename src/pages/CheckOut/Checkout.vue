@@ -103,7 +103,7 @@ import type { ICheckoutForm } from "@/types/userInterface";
 import { ErrorMessage, Field, Form, useField } from "vee-validate";
 import { reactive, ref, watch } from "vue";
 import { checkoutShema } from "@/composables/services/checkout.schema";
-import CartCheckout from "@/components/cartCheckout.vue";
+import CartCheckout from "@/components/CartCheckout.vue";
 import { useCheckoutStor } from "@/api/checkout";
 import { useRouter } from "vue-router";
 
