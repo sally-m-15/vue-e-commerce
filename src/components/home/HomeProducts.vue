@@ -10,7 +10,7 @@
         class="show-button cursor-pointer rounded-md hover:shadow-green-600 hover:shadow-md py-5 px-3 transition-all duration-300 ease-in-out"
       >
         <div>
-          <img :src="product.imageCover" :alt="product.title" />
+          <img loading="lazy" :src="product.imageCover" :alt="product.title" />
           <p class="mt-2 text-green-700 text-sm dark:text-green-500">
             {{ product.category.name }}
           </p>

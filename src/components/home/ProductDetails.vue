@@ -5,7 +5,7 @@
         <div class=" w-full md:w-96 lg-1/3 mt-8 self-center">
             <Carousel v-bind="carouselConfig">
                 <Slide v-for="img in details.product?.images" :key="img">
-                    <img class="w-full" :src="img" alt="`${details.product?.title} image`"></img>
+                    <img class="w-full" loading="lazy" :src="img" alt="`${details.product?.title} image`"></img>
                 </Slide>
                 <template #addons>
                     <div class="pt-10">
@@ -25,7 +25,7 @@
                 class=" text-amber-400 text-sm"/>  
                 <small>{{ details.product?.ratingsAverage }}</small>  
                 </span>
-            </span>
+                </span>
                 <span class="flex justify-center mt-4 dark:text-white gap-20 mb-20 md:mb-0 ms-20 md:ms-0">
                 <button  
                 @click="addcart.postCartItem(details.product?.id)"

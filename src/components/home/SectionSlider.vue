@@ -14,6 +14,7 @@
         <Slide class="!h-full">
           <img
             class="w-full"
+            loading="lazy"
             src="../../assets/img/61cSNgtEISL._AC_SY200_.jpg"
             alt="61cSNgtEISL"
           />
