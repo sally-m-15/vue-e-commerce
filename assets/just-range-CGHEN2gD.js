@@ -1,0 +1,1 @@
+var o=f;function f(n,r,u){if(n!=null&&typeof n!="number")throw new Error("start must be a number or null");if(r!=null&&typeof r!="number")throw new Error("stop must be a number or null");if(u!=null&&typeof u!="number")throw new Error("step must be a number or null");r==null&&(r=n||0,n=0),u==null&&(u=r>n?1:-1);for(var e=[],l=n<r;l?n<r:n>r;n+=u)e.push(n);return e}export{o as a};

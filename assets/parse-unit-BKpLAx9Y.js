@@ -1,0 +1,1 @@
+import{g as t}from"./colornames-BQ62I0KG.js";var e,n;function s(){return n||(n=1,e=function(a,r){r||(r=[0,""]),a=String(a);var i=parseFloat(a,10);return r[0]=i,r[1]=a.match(/[\d.\-\+]*\s*(.*)/)[1]||"",r}),e}var p=s();const U=t(p);export{U as p};
