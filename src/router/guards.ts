@@ -3,6 +3,7 @@ export const routes = [
   {
     path: "/",
     component: ()=> import("@/layout/MainLayout.vue"),
+    redirect: { name: 'sign-in' },
     children: [
       {
         path: "",
