@@ -24,7 +24,7 @@
       <a href="https://x.com/githubstatus">@githubstatus</a>
     </p>
     <a href="https://github.com/sally-m-15"
-      ><i class="fa-brands fa-github text-3xl pt-5 text-gray-300"></i
+      ><v-icon name="fa-github" scale="2" class=" text-gray-300"></v-icon
     ></a>
   </section>
 </template>

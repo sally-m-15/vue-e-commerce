@@ -36,10 +36,11 @@
                 >
                   <span class="text-green-600">{{ item.price }} EGp</span>
                 </p>
-                <i
+                <v-icon
+                  name="fa-trash"
                   @click="useWishList.deleteWishList(item._id)"
-                  class="fa-solid fa-trash cursor-pointer text-red-500"
-                ></i>
+                  class="cursor-pointer text-red-500"
+                />
               </div>
             </div>
             <button

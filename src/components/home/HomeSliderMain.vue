@@ -8,7 +8,8 @@
       >
         <div class="h-52 w-full">
           <img
-            class="h-full w-full object-cover"
+            class="h-full w-full  object-cover"
+            loading="lazy"
             :src="category.image"
             :alt="category.name"
           />
@@ -30,8 +31,13 @@ import { allCategoriesStore } from "@/api/categories";
 import { onMounted } from "vue";
 import { Carousel, Slide, Pagination, Navigation } from "vue3-carousel";
 
+const useCategories = allCategoriesStore();
+
 const carouselConfig = {
   wrapAround: true,
+  autoplay: 3000,
+  transition: 800,
+  pauseAutoplayOnHover: true,
   breakpoints: {
     480: {
       itemsToShow: 3,
@@ -47,7 +53,7 @@ const carouselConfig = {
 onMounted(() => {
   useCategories.getAllCategories();
 });
-const useCategories = allCategoriesStore();
+
 </script>
 
 <style>

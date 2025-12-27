@@ -8,7 +8,7 @@ export const authData = reactive([
     name: "password",
     type: "password",
     show: false,
-    autocomplete: "newpassword",
+    autocomplete: "new-password",
   },
   {
     id: "rePassword-input",

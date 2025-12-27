@@ -35,7 +35,7 @@
       >
     </p>
     <router-link :to="{ name: 'file-notfound' }"
-      ><i class="fa-brands fa-github text-3xl pt-5 text-gray-300"></i
+      ><v-icon name="fa-github" scale="2" class=" text-gray-300"></v-icon
     ></router-link>
   </section>
 </template>

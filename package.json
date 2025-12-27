@@ -20,6 +20,7 @@
     "@tailwindcss/vite": "^4.1.16",
     "@vee-validate/yup": "^4.15.1",
     "axios": "^1.13.2",
+    "oh-vue-icons": "^1.0.0-rc3",
     "pinia": "^3.0.4",
     "postcss-minify-font-values": "^7.0.1",
     "tailwindcss": "^4.0.0",

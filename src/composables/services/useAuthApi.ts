@@ -3,7 +3,7 @@ import { hashData } from "./useAuthData";
 import { computed, ref } from "vue";
 import { defineStore } from "pinia";
 import type { IUserData } from "@/types/userInterface";
-import api from "@/api/axiosClient";
+import api, { handleApiError } from "@/api/axiosClient";
 import { useCartStore } from "@/api/cart";
 
 export const useAuthStore = defineStore("auth", () => {
@@ -49,10 +49,12 @@ export const useAuthStore = defineStore("auth", () => {
       localStorage.setItem("user", JSON.stringify(res.data.user));
       token.value = res.data.token;
       user.value = res.data.user;
-    } catch (error: any) {
-      if (error.response?.status === 401) {
+    } catch (err: any) {
+      if (err.response?.status === 401) {
         status.value =
           "This email is not registered. Please check and try again.";
+      }else{
+        handleApiError(err)
       }
     } finally {
       isLoading.value = false;

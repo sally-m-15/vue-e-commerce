@@ -1,7 +1,7 @@
 <template>
-  <div class="min-h-screen relative">
+  <main class="min-h-screen relative">
     <LoadingSpinner />
-    <div class="container mx-auto py-20 w-full p-4">
+    <div class="container mx-auto py-36 w-full p-4">
       <h2 class="dark:text-white my-8 text-3xl text-gray-950">register now</h2>
       <Form
         @submit="submitRegister"
@@ -11,7 +11,7 @@
         <div class="mb-5 relative" v-for="item in authData" :key="item.id">
           <label
             :for="item.id"
-            class="text-lg font-light text-gray-900 dark:text-white"
+            class="text-lg font-light cursor-pointer text-gray-900 dark:text-white"
             >{{ item.name }} :</label
           >
           <Field
@@ -37,15 +37,18 @@
           >
             {{ register.status }}
           </p>
-          <i
+          <v-icon
+            name="fa-regular-eye"
             v-if="item.type === 'password'"
             @click="item.show = !item.show"
-            class="fa-regular fa-eye absolute right-3 top-10 cursor-pointer"
-          ></i>
+            class="absolute right-3 top-10 cursor-pointer"
+            role="button"
+            aria-label="Toggle password visibility"
+          />
         </div>
         <button
           type="submit"
-          class="text-gray-500 ms-auto block border p-2 px-4 text-xl rounded-xl my-12"
+          class="text-gray-500 cursor-pointer ms-auto block border p-2 px-4 text-xl rounded-xl my-12"
           :class="
             meta.valid
               ? 'bg-green-600 hover:bg-green-800 text-white border-0'
@@ -56,7 +59,7 @@
         </button>
       </Form>
     </div>
-  </div>
+  </main>
 </template>
 
 <script setup lang="ts">
@@ -78,4 +81,6 @@ onMounted(() => {
   register.status = "";
 });
 </script>
-<style></style>
+<style>
+  
+</style>

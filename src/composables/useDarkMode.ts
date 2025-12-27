@@ -1,4 +1,4 @@
-import { onMounted, ref, watchEffect } from "vue";
+import { ref, watchEffect } from "vue";
 
 const saved = localStorage.getItem("dark-mode");
 export const dark = ref<boolean>(
@@ -10,9 +10,7 @@ export function darkMode() {
 }
 
 export function useDarkMode() {
-  onMounted(() => {
     document.documentElement.classList.toggle("dark", dark.value);
-  });
 
   watchEffect(() => {
     document.documentElement.classList.toggle("dark", dark.value);

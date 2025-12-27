@@ -61,10 +61,11 @@
               >
                 <span class="text-green-600"> </span>{{ cart.price }} EGp
               </p>
-              <i
+              <v-icon
+                name="fa-trash"
                 @click="userCart.deleteCartItems(cart.product._id)"
-                class="fa-solid fa-trash cursor-pointer text-red-500"
-              ></i>
+                class=" cursor-pointer text-red-500"
+              />
             </div>
           </div>
           <div

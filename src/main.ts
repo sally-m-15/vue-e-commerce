@@ -2,19 +2,31 @@ import { createApp } from "vue";
 import App from "./App.vue";
 import router from "./router";
 import "./assets/main.css";
-import "@fortawesome/fontawesome-free/css/all.min.css";
+import { OhVueIcon, addIcons } from "oh-vue-icons";
 import { createPinia } from "pinia";
 import "vue3-carousel/carousel.css";
 import "vue3-toastify/dist/index.css";
-import { useAuthStore } from "./composables/services/useAuthApi";
+import { 
+  FaRegularEye, 
+  FaShoppingCart,
+  FaSun, 
+  FaMoon, 
+  FaHeart, 
+  FaStar, 
+  FaCheck,
+  FaTrash,
+  FaGithub,
+  FaBars
+} from "oh-vue-icons/icons/fa";
 
 const app = createApp(App);
 const pinia = createPinia();
 
+addIcons(FaRegularEye, FaShoppingCart, FaSun, FaMoon, FaHeart, FaStar, FaCheck, FaTrash, FaGithub, FaBars);
+
+app.component('v-icon', OhVueIcon)
 app.use(router);
 app.use(pinia);
 
-const authStore = useAuthStore(pinia);
-authStore.getDataFromLocalStorage();
 
 app.mount("#app");

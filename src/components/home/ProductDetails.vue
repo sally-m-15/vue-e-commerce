@@ -1,10 +1,10 @@
 <template>
-    <div class="min-h-screen relative">
+    <main class="min-h-screen relative">
     <LoadingSpinner />
-    <section class="flex flex-col md:flex-row container mx-auto  md:items-center w-full p-4 gap-20 lg:justify-center">
+    <section class="flex flex-col md:flex-row container mx-auto pt-28  md:items-center w-full p-4 gap-20 lg:justify-center">
         <div class=" w-full md:w-96 lg-1/3 mt-8 self-center">
             <Carousel v-bind="carouselConfig">
-                <Slide v-for="img in details.product?.images.slice(0, 2)" :key="img">
+                <Slide v-for="img in details.product?.images" :key="img">
                     <img class="w-full" :src="img" alt="`${details.product?.title} image`"></img>
                 </Slide>
                 <template #addons>
@@ -20,7 +20,9 @@
                 <span class="flex justify-between mt-3 dark:text-white">
                 <p>{{ details.product?.price }} EGp</p>
                 <span>
-                <i class="fa-solid fa-star text-amber-400 text-sm"></i>  
+                <v-icon
+                name="fa-star"
+                class=" text-amber-400 text-sm"/>  
                 <small>{{ details.product?.ratingsAverage }}</small>  
                 </span>
             </span>
@@ -28,11 +30,19 @@
                 <button  
                 @click="addcart.postCartItem(details.product?.id)"
                 class="bg-green-600 hover:bg-green-700 px-14 rounded-md block cursor-pointer py-1 w-full">Add</button>
-                <i class="fa-solid fa-heart text-2xl"></i>
+                <v-icon 
+                name="fa-heart"
+                class="cursor-pointer"
+                @click.stop="userWishList.postWishList(details.product?.id)"
+                :class="
+                userWishList.likedProducts.has(details.product?.id) ? 'text-red-700' : ''
+                "
+                scale="1.3"
+                />
             </span>
         </div>
     </section>
-    </div>
+    </main>
 </template>
 
 <script setup>
@@ -48,6 +58,9 @@ const addcart = useCartStore();
 import { Carousel, Slide, Pagination } from 'vue3-carousel'
 import LoadingSpinner from '../LoadingSpinner.vue';
 import { useCartStore } from '@/api/cart';
+import { useWishlistStore } from '@/api/wishlist';
+
+const userWishList = useWishlistStore();
 
 onMounted(()=>{
     details.isLoading = true;
@@ -57,6 +70,9 @@ onMounted(()=>{
 const carouselConfig = {
   itemsToShow: 1,
   wrapAround: true,
+    autoplay: 3000,
+  transition: 800,
+  pauseAutoplayOnHover: true,
 }
 
 </script>

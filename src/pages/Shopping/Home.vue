@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen relative">
+  <main class="min-h-screen relative">
     <LoadingSpinner />
     <section>
       <SectionSlider />
@@ -8,7 +8,7 @@
       <HomeProducts />
     </section>
     <router-view />
-  </div>
+  </main>
 </template>
 
 <script setup lang="ts">

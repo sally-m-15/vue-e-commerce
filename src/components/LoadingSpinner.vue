@@ -12,7 +12,7 @@ import { useCartStore } from "@/api/cart";
 import { allProductsStore } from "@/api/products";
 import { useWishlistStore } from "@/api/wishlist";
 import { useAuthStore } from "@/composables/services/useAuthApi";
-import { computed } from "vue";
+import { computed, watch } from "vue";
 import { VueSpinnerClip } from "vue3-spinners";
 
 const loadingAuth = useAuthStore();
@@ -27,6 +27,14 @@ const show = computed(
     loadingCart.isLoading ||
     loadingWishList.isLoading
 );
+
+watch(show, (newVal) => {
+  if (newVal) {
+    document.body.style.overflow = 'hidden';
+  } else {
+    document.body.style.overflow = 'auto';
+  }
+});
 </script>
 
 <style scoped></style>

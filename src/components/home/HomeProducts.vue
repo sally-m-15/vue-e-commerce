@@ -20,7 +20,9 @@
           <span class="flex justify-between mt-3 dark:text-white">
             <p>{{ product.price }} EGp</p>
             <span>
-              <i class="fa-solid fa-star text-amber-400 text-sm"></i>
+              <v-icon 
+              name="fa-star"
+              class=" text-amber-400"/>
               <small>{{ product.ratingsAverage }}</small>
             </span>
           </span>
@@ -31,14 +33,15 @@
             >
               Add
             </button>
-            <i
+            <v-icon
+            name="fa-heart"
+            scale="1.3"
               @click.stop="userWishList.postWishList(product.id)"
-              class="fa-solid fa-heart text-2xl"
+              class="text-2xl"
               :class="
                 userWishList.likedProducts.has(product.id) ? 'text-red-700' : ''
               "
-            >
-            </i>
+            />
           </span>
         </div>
       </div>

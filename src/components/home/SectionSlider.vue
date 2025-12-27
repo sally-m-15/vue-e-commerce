@@ -1,6 +1,6 @@
 <template>
   <section
-    class="flex-col items-center flex md:justify-center pt-24 md:flex-row"
+    class="flex-col items-center flex md:justify-center pt-36 md:flex-row"
   >
     <div class="w-60 h-full">
       <Carousel v-bind="carouselConfig" class="!h-full">
@@ -47,6 +47,9 @@ import { Carousel, Slide, Pagination } from "vue3-carousel";
 const carouselConfig = {
   itemsToShow: 1,
   wrapAround: true,
+  autoplay: 4000,
+  transition: 800,
+  pauseAutoplayOnHover: true,
 };
 </script>
 

@@ -3,6 +3,7 @@ import { hashData } from "./useAuthData";
 import { computed, ref } from "vue";
 
 export const isSchema = ref(false);
+
 export const registerUserSchema = object({
   name: string().required("name is required").min(3),
   email: string()
@@ -31,7 +32,7 @@ export const loginUserSchema = object({
     .required("email is required")
     .matches(
       /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-      `This email is not registered. Please check and try again.`
+      `Invalid email format.`
     ),
   password: string()
     .required("password is required")

@@ -8,7 +8,7 @@
           <div
             class="w-20 h-20 rounded-full bg-green-100 flex items-center justify-center"
           >
-            <i class="fas fa-check text-green-600 text-4xl"></i>
+            <v-icon name="fa-check"  class=" text-green-600 text-4xl"/>
           </div>
         </div>
         <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">
@@ -24,7 +24,6 @@
           >
             Track Your Order
           </button>
-
           <button
             @click="goToProducts"
             class="border cursor-pointer border-green-600 text-green-600 hover:bg-green-50 py-3 rounded-lg font-semibold transition"

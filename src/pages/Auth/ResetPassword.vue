@@ -37,7 +37,7 @@
         </div>
       </Form>
       <Form
-        v-else="isVisible"
+        v-else
         @submit="restPassword"
         :validation-schema="userSchema"
         v-slot="{ meta, values }"
@@ -53,10 +53,11 @@
               :type="showPassword ? 'text' : 'password'"
               class="p-2 w-full mt-8 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             />
-            <i
+            <v-icon
+              name="fa-regular-eye"
               @click="showPassword = !showPassword"
               class="fa-regular fa-eye absolute right-3 top-12 cursor-pointer"
-            ></i>
+            />
           </div>
           <ErrorMessage
             name="password"

@@ -36,6 +36,7 @@ export const useWishlistStore = defineStore("wishlist", () => {
     try {
       const res = await api.get<GetWishlistResponse>("/wishlist");
       wishList.value = res.data.data;
+      likedProducts.value = new Set(res.data.data.map(item => item._id));
     } catch (err: any) {
       handleApiError(err);
     } finally {
