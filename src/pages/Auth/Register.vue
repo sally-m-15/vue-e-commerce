@@ -1,7 +1,7 @@
 <template>
   <main class="min-h-screen relative">
     <LoadingSpinner />
-    <div class="container mx-auto py-36 w-full p-4">
+    <div class="container mx-auto py-36 w-full p-4 px-14">
       <h2 class="dark:text-white my-8 text-3xl text-gray-950">register now</h2>
       <Form
         @submit="submitRegister"

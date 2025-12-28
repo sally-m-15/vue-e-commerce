@@ -1,16 +1,28 @@
 <template>
   <section class="container mx-auto w-full p-4 pb-20">
     <div
-      class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 pt-6"
+      class="grid mx-5 xl:mx-0 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 pt-6"
     >
       <div
         v-for="product in allProducts.filteredProducts"
         @click="goToProductDetails(product.id)"
         :key="product.id"
-        class="show-button cursor-pointer rounded-md hover:shadow-green-600 hover:shadow-md py-5 px-3 transition-all duration-300 ease-in-out"
+        class="show-button cursor-pointer rounded-md
+        shadow-green-600 shadow-md
+         md:shadow-none
+        md:hover:shadow-green-600 md:hover:shadow-md py-5 px-3 transition-all duration-300 ease-in-out"
       >
         <div>
-          <img loading="lazy" :src="product.imageCover" :alt="product.title" />
+          <div class="w-full h-64 overflow-hidden rounded-md bg-gray-100">
+            <img 
+              loading="lazy" 
+              :src="product.imageCover" 
+              :alt="product.title"
+              width="200"
+              height="250"
+              class="w-full h-full object-contain mix-blend-multiply dark:mix-blend-normal" 
+            />
+          </div>
           <p class="mt-2 text-green-700 text-sm dark:text-green-500">
             {{ product.category.name }}
           </p>
@@ -29,7 +41,7 @@
           <span class="flex justify-center mt-4 dark:text-white">
             <button
               @click.stop="postCart.postCartItem(product.id)"
-              class="bg-green-600 hover:bg-green-700 px-14 rounded-xl block cursor-pointer py-1"
+              class="bg-green-600 hover:bg-green-700 px-10 md:px-14  rounded-xl block cursor-pointer py-1"
             >
               Add
             </button>
@@ -71,14 +83,23 @@ onMounted(() => {
 </script>
 
 <style scoped>
-button {
-  transition: all 0.5s ease-in-out;
-  opacity: 0;
-  transform: translateY(100%);
+@media (min-width: 768px) {
+  button {
+    transition: all 0.5s ease-in-out;
+    opacity: 0;
+    transform: translateY(100%);
+  }
+
+  .show-button:hover button {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
-.show-button:hover button {
-  transform: translateY(0);
-  opacity: 1;
+@media (max-width: 767px) {
+  button {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 </style>

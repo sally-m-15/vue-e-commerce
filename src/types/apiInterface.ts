@@ -41,6 +41,11 @@ export interface SubCategory {
   name: string;
   slug: string;
   image: string;
+};
+
+export interface CategoriesResponse {
+  results: number;
+  data: Category[];
 }
 
 export interface CartProduct {

@@ -1,6 +1,6 @@
 <template>
-  <section>
-    <Carousel v-bind="carouselConfig" class="mt-20">
+  <section class="mt-20">
+    <Carousel v-bind="carouselConfig">
       <Slide
         v-for="category in useCategories.categories"
         :key="category.id"
@@ -9,9 +9,11 @@
         <div class="h-52 w-full">
           <img
             class="h-full w-full  object-cover"
-            loading="lazy"
+            :loading="index < 7 ? 'eager' : 'lazy'"
             :src="category.image"
             :alt="category.name"
+            width="150" 
+            height="208"
           />
         </div>
         <h3 class="dark:text-white font-bold">{{ category.name }}</h3>
