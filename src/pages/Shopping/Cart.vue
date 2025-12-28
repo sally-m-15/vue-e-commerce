@@ -155,7 +155,7 @@
             </div>
           </div>
         </div>
-        <div v-if="userCart.cartItems.length > 0" class="text-center flex flex-col sm:flex-row mt-10 justify-center gap-6">
+        <div v-if="userCart.cartItems.length > 0" class="text-center flex flex-col sm:flex-row py-10 justify-center gap-6">
           <button
           @click="goToProducts"
             class="bg-green-600 cursor-pointer hover:bg-green-700 p-3 px-8 rounded-lg font-medium capitalize text-white"
@@ -164,7 +164,7 @@
           </button>
           <button
             @click="userCart.clearCart()"
-            class="bg-green-600 cursor-pointer hover:bg-green-700 p-3 mb-10 px-8 rounded-lg font-medium capitalize text-white"
+            class="border dark:border-gray-500 text-gray-500 cursor-pointer p-3 px-8 rounded-lg font-medium capitalize dark:text-white"
           >
             clear your cart
           </button>
