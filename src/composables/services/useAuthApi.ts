@@ -26,9 +26,11 @@ export const useAuthStore = defineStore("auth", () => {
       const passwordToHash = await hashData(values.password);
       localStorage.setItem("phone", phoneToHash);
       localStorage.setItem("password", passwordToHash);
+      localStorage.setItem("token", res.data.token);
       localStorage.setItem("user", JSON.stringify(res.data.user));
       user.value = res.data.user;
-      router.push({ name: "sign-in" });
+       token.value = res.data.token;
+      router.push({ name: "home" });
     } catch (error: any) {
       if (error.response?.status === 409) {
         status.value =

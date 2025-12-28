@@ -9,6 +9,7 @@
           exact-active-class="''"
           :to="{ name: 'sign-in' }"
           class="flex items-center"
+          @click="menu = false"
         >
           <v-icon
           name="fa-shopping-cart"
@@ -53,6 +54,7 @@
       >
         <li v-if="!userData.isloggedIn">
           <router-link
+            @click="menu = false"
             :to="{ name: 'sign-up' }"
             class="hover:dark:text-gray-50 hover:text-gray-950"
           >
@@ -64,6 +66,7 @@
             :exact-active-class="''"
             :to="{ name: 'cart' }"
             class="hover:dark:text-gray-50 hover:text-gray-950 relative"
+            @click="menu = false"
           >
             <v-icon
             scale="1.6"
@@ -80,13 +83,14 @@
           <router-link
             :to="{ name: 'sign-in' }"
             class="hover:dark:text-gray-50 hover:text-gray-950"
+            @click="menu = false"
           >
             log in
           </router-link>
         </li>
         <li v-if="userData.isloggedIn">
           <button
-            @click="userData.logOut"
+            @click="handelLogOut"
             class="hover:dark:text-gray-50 hover:text-gray-950 cursor-pointer"
           >
             log out
@@ -108,7 +112,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { onMounted, onUnmounted, ref } from "vue";
 import { darkMode, dark } from "@/composables/useDarkMode";
 import { useAuthStore } from "@/composables/services/useAuthApi";
 import { useCartStore } from "@/api/cart";
@@ -118,11 +122,28 @@ const menu = ref<boolean>(false);
 const userData = useAuthStore();
 const cartStore = useCartStore();
 
-
-
 function toggleMenu() {
   menu.value = !menu.value;
 }
+
+function handelLogOut (){
+  userData.logOut();
+  menu.value = false;
+}
+
+function handleScroll() {
+  if (menu.value) {
+    menu.value = false;
+  }
+}
+
+onMounted(()=>{
+  window.addEventListener('scroll', handleScroll)
+});
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', handleScroll);
+});
 </script>
 
 <style>

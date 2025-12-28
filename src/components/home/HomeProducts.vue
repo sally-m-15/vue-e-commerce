@@ -1,7 +1,7 @@
 <template>
   <section class="container mx-auto w-full p-4 pb-20">
     <div
-      class="grid mx-5 xl:mx-0 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 pt-6"
+      class="grid mx-5 xl:mx-0 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8 pt-6"
     >
       <div
         v-for="product in allProducts.filteredProducts"
@@ -23,12 +23,25 @@
               class="w-full h-full object-contain mix-blend-multiply dark:mix-blend-normal" 
             />
           </div>
+
           <p class="mt-2 text-green-700 text-sm dark:text-green-500">
             {{ product.category.name }}
           </p>
-          <h5 class="mt-4 text-md font-medium dark:text-white line-clamp-1">
-            {{ product.title }}
-          </h5>
+          <span class="flex justify-between dark:text-white mt-4 ">
+             <h5 class="text-md font-medium dark:text-white line-clamp-1">
+              {{ product.title }}
+            </h5>
+            <button @click.stop="postCart.goToCart()" class="relative" v-if="postCart.getProductCount(product.id) > 0" >
+            <v-icon
+            scale="1.5"
+            name="fa-shopping-cart"
+            class="fa-cart-shopping text-2xl cursor-pointer dark:text-gray-50 text-gray-950"
+            />
+            <span
+                class="w-6 h-6 rounded-lg flex justify-center items-center bottom-4 start-2 bg-green-600 absolute text-sm font-stretch-normal text-white"
+                >{{ postCart.getProductCount(product.id) }}</span>
+            </button>
+          </span>
           <span class="flex justify-between mt-3 dark:text-white">
             <p>{{ product.price }} EGp</p>
             <span>
@@ -38,10 +51,10 @@
               <small>{{ product.ratingsAverage }}</small>
             </span>
           </span>
-          <span class="flex justify-center mt-4 dark:text-white">
+          <span class="flex justify-center mt-4 gap-1 dark:text-white">
             <button
               @click.stop="postCart.postCartItem(product.id)"
-              class="bg-green-600 hover:bg-green-700 px-10 md:px-14  rounded-xl block cursor-pointer py-1"
+              class="bg-green-600 hover:bg-green-700 px-8 md:px-14  rounded-xl block cursor-pointer py-1"
             >
               Add
             </button>

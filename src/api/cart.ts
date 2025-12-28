@@ -3,12 +3,14 @@ import api, { handleApiError } from "./axiosClient";
 import { toast } from "vue3-toastify";
 import { ref } from "vue";
 import type { CartData, CartItem, CartResponse } from "@/types/apiInterface";
+import { useRouter } from "vue-router";
 
 export const useCartStore = defineStore("cart", () => {
   const isLoading = ref<boolean>(false);
   const cartItems = ref<CartItem[]>([]);
   const CartData = ref<CartData | null>(null);
   const numOfCartItems = ref<number>(0);
+   const router = useRouter();
 
   function resetCart() {
     cartItems.value = [];
@@ -69,6 +71,7 @@ export const useCartStore = defineStore("cart", () => {
     try {
       const res = await api.put<CartItem>(`/cart/${productId}`, { count });
       await getCartItems();
+      return count;
     } catch (err: any) {
       handleApiError(err);
     } finally {
@@ -87,7 +90,16 @@ export const useCartStore = defineStore("cart", () => {
     } finally {
       isLoading.value = false;
     }
-  }
+  };
+
+  function getProductCount(productId: string): number {
+    const item = CartData.value?.products.find(ele => ele.product._id === productId);
+    return item?.count ?? 0;
+  };
+
+  function goToCart(){
+  router.push({name: 'cart'});
+}
 
   return {
     cartItems,
@@ -100,5 +112,7 @@ export const useCartStore = defineStore("cart", () => {
     deleteCartItems,
     updateCartItems,
     clearCart,
+    getProductCount,
+    goToCart
   };
 });

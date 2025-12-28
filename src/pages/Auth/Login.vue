@@ -46,13 +46,13 @@
             aria-label="Toggle password visibility"
           />
         </div>
-        <div class="flex">
           <router-link :to="{ name: 'reset-password' }" class="dark:text-white"
             >Forgot your password?</router-link
           >
-          <button
+          <div class="flex flex-col sm:flex-row gap-4 sm:justify-between mt-5">
+            <button
             type="submit"
-            class="text-gray-500 ms-auto border p-2 px-4 text-xl rounded-xl cursor-pointer"
+            class="text-gray-500 order-2 border p-2 px-4 text-xl rounded-xl cursor-pointer"
             :class="
               meta.valid
                 ? 'bg-green-600 hover:bg-green-800 text-white border-0'
@@ -61,7 +61,13 @@
           >
             login now
           </button>
-        </div>
+          <button
+          @click="goToRegister"
+            class="text-gray-500 order-1 border p-2 px-4 text-xl rounded-xl cursor-pointer"
+          >
+            register now
+          </button>
+          </div>
       </Form>
     </div>
   </main>
@@ -72,12 +78,13 @@ import { hashData, userData } from "@/composables/services/useAuthData";
 import { ErrorMessage, Field, Form } from "vee-validate";
 import { loginUserSchema } from "@/composables/services/useAuthSchema";
 import { useAuthStore } from "@/composables/services/useAuthApi";
-import router from "@/router";
 import { computed, onMounted } from "vue";
 import LoadingSpinner from "@/components/LoadingSpinner.vue";
+import { useRouter } from "vue-router";
 
 const { authData } = userData();
 const login = useAuthStore();
+const router = useRouter();
 
 const filterUseData = computed(() => {
   return authData.filter((ele) => {
@@ -94,6 +101,9 @@ async function submitLogin(values: any) {
   }
 }
 
+function goToRegister() {
+  router.push({name: 'sign-up'})
+}
 onMounted(() => {
   login.status = "";
 });

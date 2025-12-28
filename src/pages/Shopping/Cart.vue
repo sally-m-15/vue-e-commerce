@@ -155,10 +155,16 @@
             </div>
           </div>
         </div>
-        <div v-if="userCart.cartItems.length > 0" class="text-center">
+        <div v-if="userCart.cartItems.length > 0" class="text-center flex flex-col sm:flex-row mt-10 justify-center gap-6">
+          <button
+          @click="goToProducts"
+            class="bg-green-600 cursor-pointer hover:bg-green-700 p-3 px-8 rounded-lg font-medium capitalize text-white"
+          >
+            Continue Shopping
+          </button>
           <button
             @click="userCart.clearCart()"
-            class="bg-green-600 cursor-pointer hover:bg-green-700 p-3 px-8 rounded-lg my-10 font-medium capitalize text-white"
+            class="bg-green-600 cursor-pointer hover:bg-green-700 p-3 mb-10 px-8 rounded-lg font-medium capitalize text-white"
           >
             clear your cart
           </button>
@@ -171,6 +177,7 @@
 <script setup lang="ts">
 import { useCartStore } from "@/api/cart";
 import LoadingSpinner from "@/components/LoadingSpinner.vue";
+import { useNavigation } from "@/composables/services/action";
 import { onMounted } from "vue";
 import { useRouter } from "vue-router";
 
@@ -179,6 +186,8 @@ onMounted(async () => {
   await userCart.getCartItems();
 });
 const router = useRouter();
+
+const { goToProducts } = useNavigation();
 
 function gotocheckout() {
   router.push({ name: "checkout" });
