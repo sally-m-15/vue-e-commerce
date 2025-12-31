@@ -39,6 +39,7 @@
           width="240"
       height="152"
       fetchpriority="high"
+      decoding="async"
         />
       </div>
       <div>
@@ -48,6 +49,7 @@
           width="240"
       height="152"
       fetchpriority="high"
+      decoding="async"
         />
       </div>
     </div>

@@ -1,6 +1,5 @@
 <template>
-  <main class="min-h-screen relative">
-    <LoadingSpinner />
+
     <div class="container mx-auto py-36 w-full p-4 px-14">
       <h2 class="dark:text-white my-8 text-3xl text-gray-950">register now</h2>
       <Form
@@ -48,18 +47,20 @@
         </div>
         <button
           type="submit"
+          :disabled="register.isLoading"
           class="text-gray-500 cursor-pointer ms-auto block border p-2 px-4 text-xl rounded-xl my-12"
-          :class="
-            meta.valid
+          :class="[meta.valid
               ? 'bg-green-600 hover:bg-green-800 text-white border-0'
-              : 'bg-white'
+              : 'bg-white',
+            register.isLoading ? 'cursor-wait' : 'cursor-pointer'
+            ]
           "
         >
-          Register now
+        <span v-if="register.isLoading">loading...</span>
+        <span v-else>Register now</span>
         </button>
       </Form>
     </div>
-  </main>
 </template>
 
 <script setup lang="ts">
@@ -67,7 +68,6 @@ import { ErrorMessage, Field, Form } from "vee-validate";
 import { userData } from "@/composables/services/useAuthData";
 import { registerUserSchema } from "@/composables/services/useAuthSchema";
 import { useAuthStore } from "@/composables/services/useAuthApi";
-import LoadingSpinner from "@/components/LoadingSpinner.vue";
 import { onMounted } from "vue";
 
 const { authData } = userData();

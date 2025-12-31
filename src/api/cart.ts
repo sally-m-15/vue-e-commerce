@@ -7,6 +7,10 @@ import { useRouter } from "vue-router";
 
 export const useCartStore = defineStore("cart", () => {
   const isLoading = ref<boolean>(false);
+  const isClearing = ref<boolean>(false);
+  const updatingPlusId = ref<string | null>(null);
+  const updatingMinusId = ref<string | null>(null);
+  const LoadingId = ref<string | null>(null);
   const cartItems = ref<CartItem[]>([]);
   const CartData = ref<CartData | null>(null);
   const numOfCartItems = ref<number>(0);
@@ -20,8 +24,8 @@ export const useCartStore = defineStore("cart", () => {
   }
 
   async function postCartItem(productId: string) {
-    if (isLoading.value) return;
-    isLoading.value = true;
+    if (LoadingId.value) return;
+    LoadingId.value = productId;
     try {
       const res = await api.post<CartResponse>("/cart", { productId });
       toast(res.data.message, {
@@ -33,12 +37,14 @@ export const useCartStore = defineStore("cart", () => {
     } catch (err: any) {
       handleApiError(err);
     } finally {
-      isLoading.value = false;
+      LoadingId.value = null;
     }
   }
 
   async function getCartItems() {
+    if (cartItems.value.length === 0) {
     isLoading.value = true;
+  };
     try {
       const res = await api.get<CartResponse>("/cart");
       cartItems.value = res.data.data.products;
@@ -52,22 +58,24 @@ export const useCartStore = defineStore("cart", () => {
   }
 
   async function deleteCartItems(productId: string) {
-    if (isLoading.value) return;
-    isLoading.value = true;
+    if (LoadingId.value) return;
+    LoadingId.value = productId;
     try {
       const res = await api.delete<CartResponse>(`/cart/${productId}`);
       await getCartItems();
     } catch (err: any) {
       handleApiError(err);
     } finally {
-      isLoading.value = false;
+      LoadingId.value = null;
     }
   }
 
-  async function updateCartItems(productId: string, count: number) {
-    if (isLoading.value) return;
-    if (count < 1) return;
-    isLoading.value = true;
+  async function updateCartItems(productId: string, count: number, actionType: string) {
+      if (actionType === 'plus') {
+        updatingPlusId.value = productId;
+      }else{
+        updatingMinusId.value = productId;
+      }
     try {
       const res = await api.put<CartItem>(`/cart/${productId}`, { count });
       await getCartItems();
@@ -75,20 +83,21 @@ export const useCartStore = defineStore("cart", () => {
     } catch (err: any) {
       handleApiError(err);
     } finally {
-      isLoading.value = false;
+      updatingPlusId.value = null;
+      updatingMinusId.value = null;
     }
   }
 
   async function clearCart() {
-    if (isLoading.value) return;
-    isLoading.value = true;
+    if (isClearing.value) return;
+    isClearing.value = true;
     try {
       await api.delete("/cart");
       await getCartItems();
     } catch (err: any) {
       handleApiError(err);
     } finally {
-      isLoading.value = false;
+      isClearing.value = false;
     }
   };
 
@@ -105,6 +114,10 @@ export const useCartStore = defineStore("cart", () => {
     cartItems,
     CartData,
     isLoading,
+    isClearing,
+    updatingPlusId,
+    updatingMinusId,
+    LoadingId,
     numOfCartItems,
     postCartItem,
     resetCart,

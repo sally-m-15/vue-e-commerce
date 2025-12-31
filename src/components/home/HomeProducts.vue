@@ -7,6 +7,7 @@
         v-for="product in allProducts.filteredProducts"
         @click="goToProductDetails(product.id)"
         :key="product.id"
+        :class="postCart.LoadingId ? 'cursor-wait' : 'cursor-pointer'"
         class="show-button cursor-pointer rounded-md
         shadow-green-600 shadow-md
          md:shadow-none
@@ -18,17 +19,17 @@
               loading="lazy" 
               :src="product.imageCover" 
               :alt="product.title"
+              decoding="async"
               width="200"
               height="250"
               class="w-full h-full object-contain mix-blend-multiply dark:mix-blend-normal" 
             />
           </div>
-
           <p class="mt-2 text-green-700 text-sm dark:text-green-500">
             {{ product.category.name }}
           </p>
           <span class="flex justify-between dark:text-white mt-4 ">
-             <h5 class="text-md font-medium dark:text-white line-clamp-1">
+            <h5 class="text-md font-medium dark:text-white line-clamp-1">
               {{ product.title }}
             </h5>
             <button @click.stop="postCart.goToCart()" class="relative" v-if="postCart.getProductCount(product.id) > 0" >
@@ -53,18 +54,20 @@
           </span>
           <span class="flex justify-center mt-4 gap-1 dark:text-white">
             <button
+            :disabled="postCart.LoadingId === product.id"
               @click.stop="postCart.postCartItem(product.id)"
-              class="bg-green-600 hover:bg-green-700 px-8 md:px-14  rounded-xl block cursor-pointer py-1"
+              class="bg-green-600 hover:bg-green-700  rounded-xl block py-1"
+              :class="postCart.LoadingId === product.id ? 'translate-y-0 loading-active px-4 md:px-10 opacity-100 cursor-wait' : 'cursor-pointer px-8 md:px-14'"
             >
-              Add
+            <span v-if="postCart.LoadingId === product.id">adding...</span>
+            <span v-else>add</span>
             </button>
             <v-icon
             name="fa-heart"
             scale="1.3"
               @click.stop="userWishList.postWishList(product.id)"
               class="text-2xl"
-              :class="
-                userWishList.likedProducts.has(product.id) ? 'text-red-700' : ''
+              :class="[userWishList.likedProducts.has(product.id) ? 'text-red-700' : '', userWishList.LoadingId === product.id? 'cursor-wait' : 'cursor-pointer']
               "
             />
           </span>
@@ -93,11 +96,12 @@ function goToProductDetails(id: string) {
 onMounted(() => {
   allProducts.getProductsData();
 });
+
 </script>
 
 <style scoped>
 @media (min-width: 768px) {
-  button {
+  button:not(.loading-active) {
     transition: all 0.5s ease-in-out;
     opacity: 0;
     transform: translateY(100%);

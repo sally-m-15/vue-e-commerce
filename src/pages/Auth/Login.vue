@@ -1,6 +1,5 @@
 <template>
-  <main class="min-h-screen relative">
-    <LoadingSpinner />
+
     <div class="container mx-auto py-32 w-full p-4 px-14">
       <h2 class="dark:text-white my-8 text-3xl text-gray-950">login now</h2>
       <Form
@@ -51,15 +50,17 @@
           >
           <div class="flex flex-col sm:flex-row gap-4 sm:justify-between mt-5">
             <button
+            :disabled="login.isLoading"
             type="submit"
-            class="text-gray-500 order-2 border p-2 px-4 text-xl rounded-xl cursor-pointer"
-            :class="
-              meta.valid
+            class="text-gray-500 order-2 border p-2 px-4 text-xl rounded-xl"
+            :class="[  meta.valid
                 ? 'bg-green-600 hover:bg-green-800 text-white border-0'
-                : 'bg-white'
-            "
+                : 'bg-white',
+                login.isLoading ? 'cursor-wait' : 'cursor-pointer'
+            ]"
           >
-            login now
+          <span v-if="login.isLoading">Logging...</span>
+          <span v-else>login now</span>
           </button>
           <button
           @click="goToRegister"
@@ -70,7 +71,6 @@
           </div>
       </Form>
     </div>
-  </main>
 </template>
 
 <script setup lang="ts">
@@ -79,7 +79,6 @@ import { ErrorMessage, Field, Form } from "vee-validate";
 import { loginUserSchema } from "@/composables/services/useAuthSchema";
 import { useAuthStore } from "@/composables/services/useAuthApi";
 import { computed, onMounted } from "vue";
-import LoadingSpinner from "@/components/LoadingSpinner.vue";
 import { useRouter } from "vue-router";
 
 const { authData } = userData();

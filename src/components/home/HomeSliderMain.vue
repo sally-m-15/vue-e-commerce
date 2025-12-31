@@ -9,7 +9,7 @@
         <div class="h-52 w-full">
           <img
             class="h-full w-full  object-cover"
-            :loading="index < 7 ? 'eager' : 'lazy'"
+            :loading="index < 3 ? 'eager' : 'lazy'"
             :src="category.image"
             :alt="category.name"
             width="150" 

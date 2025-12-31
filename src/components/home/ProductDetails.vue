@@ -1,6 +1,5 @@
 <template>
-    <main class="min-h-screen relative">
-    <LoadingSpinner />
+
     <section class="flex flex-col md:flex-row container mx-auto pt-28  md:items-center w-full p-4 gap-20 lg:justify-center px-20 md:px-0">
         <div class=" w-full md:w-96 lg-1/3 mt-8 self-center">
             <Carousel v-bind="carouselConfig">
@@ -41,20 +40,23 @@
                 <span class="flex justify-center mt-4 dark:text-white gap-20 mb-20 md:mb-0 ms-20 md:ms-0">
                 <button  
                 @click="addcart.postCartItem(details.product?.id)"
-                class="bg-green-600 hover:bg-green-700 px-14 rounded-md block cursor-pointer py-1 w-full">Add</button>
+                :disabled="addcart.LoadingId === details.product?.id"
+                class="bg-green-600 hover:bg-green-700 px-14 rounded-md block cursor-pointer py-1 w-full">
+                <span v-if="addcart.LoadingId === details.product?.id">adding...</span>
+                <span v-else>add</span>
+            </button>
                 <v-icon 
                 name="fa-heart"
-                class="cursor-pointer"
                 @click.stop="userWishList.postWishList(details.product?.id)"
-                :class="
-                userWishList.likedProducts.has(details.product?.id) ? 'text-red-700' : ''
+                :class="[userWishList.likedProducts.has(details.product?.id) ? 'text-red-700' : '',
+                    userWishList.LoadingId === details.product?.id? 'cursor-wait' : 'cursor-pointer'
+                ]
                 "
                 scale="1.3"
                 />
             </span>
         </div>
     </section>
-    </main>
 </template>
 
 <script setup>
@@ -68,7 +70,6 @@ const details = allProductsStore();
 const addcart = useCartStore();
 
 import { Carousel, Slide, Pagination } from 'vue3-carousel'
-import LoadingSpinner from '../LoadingSpinner.vue';
 import { useCartStore } from '@/api/cart';
 import { useWishlistStore } from '@/api/wishlist';
 

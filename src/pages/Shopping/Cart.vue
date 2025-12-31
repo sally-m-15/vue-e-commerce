@@ -1,8 +1,9 @@
 <template>
-  <div class="min-h-screen relative">
-    <LoadingSpinner />
     <section class="py-24 relative mx-auto container pt-20 px-8 xl:px-0">
-      <div class="w-full px-4 md:px-12 mt-12 pt-6 bg-gray-100 dark:bg-gray-900">
+      <div v-if="userCart.isLoading" class="flex justify-center py-20">
+       <vue-spinner-clip :loading="true" color="#16a34a" :size="50" />
+    </div>
+      <div v-else class="w-full px-4 md:px-12 mt-12 pt-6 bg-gray-100 dark:bg-gray-900">
         <div class="w-full py-6">
           <div
             class="font-normal text-xl leading-8 flex flex-col md:flex-row items-center w-full md:justify-between gap-5 md:gap-0"
@@ -61,11 +62,22 @@
               >
                 <span class="text-green-600"> </span>{{ cart.price }} EGp
               </p>
-              <v-icon
+              <button
+              :disabled="userCart.LoadingId === cart.product._id"
+              @click="userCart.deleteCartItems(cart.product._id)"
+              class=" text-red-500"
+              :class="userCart.LoadingId === cart.product._id? 'cursor-wait' : 'cursor-pointer'"
+              >
+               <vue-spinner-clip 
+    v-if="userCart.LoadingId === cart.product._id"
+    :loading="true" 
+    color="#ef4444" 
+    size="20" 
+  />
+                <v-icon v-else
                 name="fa-trash"
-                @click="userCart.deleteCartItems(cart.product._id)"
-                class=" cursor-pointer text-red-500"
               />
+              </button>
             </div>
           </div>
           <div
@@ -73,13 +85,14 @@
           >
             <div class="flex items-center justify-center md:justify-end w-full">
               <button
-                :disabled="userCart.isLoading"
+                :disabled="userCart.updatingMinusId === cart.product._id"
                 @click="
-                  userCart.updateCartItems(cart.product._id, cart.count - 1)
+                  userCart.updateCartItems(cart.product._id, cart.count - 1, 'Minus')
                 "
-                class="group rounded-lg px-2 py-3 border cursor-pointer border-green-600 flex items-center justify-center shadow-sm shadow-transparent transition-all duration-500 hover:shadow-gray-200 hover:border-gray-300 hover:bg-gray-50"
+                class="group rounded-lg px-2 py-3 border  flex items-center justify-center shadow-sm shadow-transparent transition-all duration-500 "
+                :class="userCart.updatingMinusId === cart.product._id ? 'bg-red-400 border-red-500 cursor-wait' : 'cursor-pointer border-green-600 hover:shadow-gray-200 hover:border-gray-300 hover:bg-gray-50'"
               >
-                <svg
+                <svg 
                   class="stroke-gray-900 dark:stroke-white transition-all duration-500 group-hover:stroke-black"
                   xmlns="http://www.w3.org/2000/svg"
                   width="22"
@@ -116,13 +129,14 @@
                 readonly
               />
               <button
-                :disabled="userCart.isLoading"
+                :disabled="userCart.updatingPlusId === cart.product._id"
                 @click="
-                  userCart.updateCartItems(cart.product._id, cart.count + 1)
+                  userCart.updateCartItems(cart.product._id, cart.count + 1, 'plus')
                 "
-                class="group cursor-pointer rounded-lg px-2 py-3 border border-green-600 flex items-center justify-center shadow-sm shadow-transparent transition-all duration-500 hover:shadow-gray-200 hover:border-gray-300 hover:bg-gray-50"
+                class="group rounded-lg px-2 py-3 border border-green-600 flex items-center justify-center shadow-sm shadow-transparent transition-all duration-500"
+                :class="userCart.updatingPlusId === cart.product._id ? 'bg-green-600 border-green-600 cursor-wait' : 'cursor-pointer border-green-600 hover:shadow-gray-200 hover:border-gray-300 hover:bg-gray-50'"
               >
-                <svg
+                <svg 
                   class="stroke-gray-900 transition-all dark:stroke-white duration-500 group-hover:stroke-black"
                   xmlns="http://www.w3.org/2000/svg"
                   width="22"
@@ -163,28 +177,30 @@
             Continue Shopping
           </button>
           <button
+          :disabled="userCart.isClearing" 
             @click="userCart.clearCart()"
-            class="border dark:border-gray-500 text-gray-500 cursor-pointer p-3 px-8 rounded-lg font-medium capitalize dark:text-white"
+            class="border dark:border-gray-500 text-gray-500 p-3 px-8 rounded-lg font-medium capitalize dark:text-white"
+            :class="userCart.isClearing ? 'cursor-wait' : 'cursor-pointer'"
           >
+          <span v-if="userCart.isClearing">Clearing...</span>
+          <span v-else>
             clear your cart
+          </span>
           </button>
         </div>
       </div>
     </section>
-  </div>
 </template>
 
 <script setup lang="ts">
 import { useCartStore } from "@/api/cart";
-import LoadingSpinner from "@/components/LoadingSpinner.vue";
 import { useNavigation } from "@/composables/services/action";
 import { onMounted } from "vue";
 import { useRouter } from "vue-router";
+import { VueSpinnerClip } from "vue3-spinners";
 
 const userCart = useCartStore();
-onMounted(async () => {
-  await userCart.getCartItems();
-});
+
 const router = useRouter();
 
 const { goToProducts } = useNavigation();
@@ -192,6 +208,9 @@ const { goToProducts } = useNavigation();
 function gotocheckout() {
   router.push({ name: "checkout" });
 }
+onMounted(async () => {
+  await userCart.getCartItems();
+});
 </script>
 
 <style scoped>

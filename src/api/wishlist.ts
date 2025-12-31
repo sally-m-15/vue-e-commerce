@@ -10,11 +10,12 @@ import type {
 
 export const useWishlistStore = defineStore("wishlist", () => {
   const isLoading = ref<boolean>(false);
+  const  LoadingId = ref<string | null > (null)
   const likedProducts = ref<Set<string>>(new Set());
   const wishList = ref<WishlistProduct[]>([]);
 
   async function postWishList(productId: string) {
-    isLoading.value = true;
+    LoadingId.value = productId;
     try {
       const res = await api.post<WishlistResponse>("/wishlist", { productId });
       toast(res.data.message, {
@@ -27,12 +28,14 @@ export const useWishlistStore = defineStore("wishlist", () => {
     } catch (err: any) {
       handleApiError(err);
     } finally {
-      isLoading.value = false;
+      LoadingId.value = null;
     }
   }
 
   async function getWishList() {
-    isLoading.value = true;
+    if (wishList.value.length === 0) {
+       isLoading.value = true;
+    }
     try {
       const res = await api.get<GetWishlistResponse>("/wishlist");
       wishList.value = res.data.data;
@@ -45,20 +48,21 @@ export const useWishlistStore = defineStore("wishlist", () => {
   }
 
   async function deleteWishList(productId: string) {
-    isLoading.value = true;
+    LoadingId.value = productId;
     try {
       await api.delete<WishlistResponse>(`/wishlist/${productId}`);
       await getWishList();
     } catch (err: any) {
       handleApiError(err);
     } finally {
-      isLoading.value = false;
+      LoadingId.value = null;
     }
   }
 
   return {
     likedProducts,
     isLoading,
+    LoadingId,
     wishList,
     postWishList,
     getWishList,
