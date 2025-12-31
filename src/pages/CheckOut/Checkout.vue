@@ -1,5 +1,4 @@
 <template>
-
     <div class="py-28 flex flex-col md:flex-row gap-10 md:gap-0">
       <section
         class="md:w-3/5 order-2 md:order-1 flex flex-col mx-10 border-t md:border-t-0 py-10 border-gray-300"

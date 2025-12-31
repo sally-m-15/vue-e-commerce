@@ -2,7 +2,7 @@ import { defineStore } from "pinia";
 import api, { handleApiError } from "./axiosClient";
 import { useCartStore } from "./cart";
 import type { ICheckoutForm } from "@/types/userInterface";
-import { computed } from "vue";
+import { computed, ref } from "vue";
 
 export const useCheckoutStor = defineStore("checkout", () => {
   const userCart = useCartStore();
@@ -19,8 +19,7 @@ export const useCheckoutStor = defineStore("checkout", () => {
       });
     } catch (err) {
       handleApiError(err);
-    }
-  }
+  }}
 
   async function onlinCheckout(value: ICheckoutForm) {
     try {
@@ -41,7 +40,6 @@ export const useCheckoutStor = defineStore("checkout", () => {
       location.href = res.data.session.url;
     } catch (err) {
       handleApiError(err);
-    }
-  }
+  }}
   return { cashOrder, onlinCheckout };
 });
