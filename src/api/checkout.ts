@@ -2,7 +2,7 @@ import { defineStore } from "pinia";
 import api, { handleApiError } from "./axiosClient";
 import { useCartStore } from "./cart";
 import type { ICheckoutForm } from "@/types/userInterface";
-import { computed, ref } from "vue";
+import { computed } from "vue";
 
 export const useCheckoutStor = defineStore("checkout", () => {
   const userCart = useCartStore();
@@ -12,7 +12,7 @@ export const useCheckoutStor = defineStore("checkout", () => {
       if (!cartId.value) return;
       const res = await api.post(`/orders/${cartId.value}`, {
         shippingAddress: {
-          details: value.details,
+          details: value.details, 
           city: value.city,
           phone: value.phone,
         },

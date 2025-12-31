@@ -41,7 +41,9 @@
                 <button  
                 @click="addcart.postCartItem(details.product?.id)"
                 :disabled="addcart.LoadingId === details.product?.id"
-                class="bg-green-600 hover:bg-green-700 px-14 rounded-md block cursor-pointer py-1 w-full">
+                class="bg-green-600 hover:bg-green-700 px-14 rounded-md block cursor-pointer py-1 w-full"
+                :class="addcart.LoadingId === details.product?.id? 'cursor-wait' : 'cursor-pointer'"
+                >
                 <span v-if="addcart.LoadingId === details.product?.id">adding...</span>
                 <span v-else>add</span>
             </button>
