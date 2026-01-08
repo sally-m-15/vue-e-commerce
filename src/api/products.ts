@@ -8,6 +8,9 @@ export const allProductsStore = defineStore("api", () => {
   const searchTerm = ref("");
   const products = ref<Product[]>([]);
   const product = ref<Product | null>(null);
+  const selectedSupCategory = ref<string>();
+  const selectedMainCategoryId = ref<string>();
+
 
   async function getProductsData() {
     isLoading.value = true;
@@ -19,11 +22,20 @@ export const allProductsStore = defineStore("api", () => {
     } finally {
       isLoading.value = false;
     }
-  }
+  };
 
   const filteredProducts = computed(() => {
     return products.value.filter((ele) => {
-      return ele.title.toLowerCase().includes(searchTerm.value.toLowerCase());
+      const matchesSearch = ele.title.toLowerCase().includes(searchTerm.value.toLowerCase());
+
+      const matchesMainCategory = selectedMainCategoryId.value 
+  ? ele.category._id === selectedMainCategoryId.value 
+  : true;
+
+     const matchesCategory = (selectedSupCategory.value === 'all' || !selectedSupCategory.value)
+      ? true 
+      : ele.category.name === selectedSupCategory.value;
+      return matchesSearch && matchesCategory && matchesMainCategory;
     });
   });
 
@@ -43,6 +55,10 @@ export const allProductsStore = defineStore("api", () => {
       isLoading.value = false;
     }
   }
+function resetFilters() {
+  selectedMainCategoryId.value = "";
+  selectedSupCategory.value = "all";
+}
 
   return {
     products,
@@ -50,8 +66,11 @@ export const allProductsStore = defineStore("api", () => {
     filteredProducts,
     product,
     isLoading,
+    selectedSupCategory,
+    selectedMainCategoryId,
     clearProducts,
     getProductsData,
     getProductsDetails,
+    resetFilters
   };
 });

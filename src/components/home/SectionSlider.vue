@@ -1,6 +1,6 @@
 <template>
   <section
-    class="flex-col items-center flex md:justify-center pt-36 md:flex-row"
+    class="flex-col items-center flex md:justify-center pt-36 md:flex-row "
   >
     <div class="w-60 h-full">
       <Carousel v-bind="carouselConfig" class="!h-full">

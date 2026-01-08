@@ -1,5 +1,5 @@
 <template>
-    <section>
+    <section class="pt-28">
       <SearchBar />
       <HomeProducts />
     </section>

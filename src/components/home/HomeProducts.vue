@@ -10,7 +10,7 @@
         :class="postCart.LoadingId ? 'cursor-wait' : 'cursor-pointer'"
         class="show-button cursor-pointer rounded-md
         shadow-green-600 shadow-md
-         md:shadow-none
+          md:shadow-none
         md:hover:shadow-green-600 md:hover:shadow-md py-5 px-3 transition-all duration-300 ease-in-out"
       >
         <div>

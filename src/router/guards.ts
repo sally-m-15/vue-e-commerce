@@ -64,14 +64,12 @@ export const routes = [
         name: "categories",
         meta: { requiresAuth: true },
         component: () => import("@/pages/Shopping/Categories.vue"),
-        children: [
-          {
-            path: "categoriecard",
-            name: "categoriecard",
-            meta: { requiresAuth: true },
-            component: () => import("@/components/CategorieCard.vue"),
-          },
-        ],
+      },
+      {
+        path: 'subCategories/:id',
+        name: 'subCategories',
+        meta: {requiresAuth: true},
+        component: ()=> import('@/components/SubCategories.vue')
       },
       {
         path: "brands",

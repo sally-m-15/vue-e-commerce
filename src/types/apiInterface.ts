@@ -48,6 +48,12 @@ export interface CategoriesResponse {
   data: Category[];
 }
 
+export interface singleCategoryResponse {
+  results?: number;
+  metadata?: any;
+  data: SubCategory[];
+}
+
 export interface CartProduct {
   _id: string;
   title: string;

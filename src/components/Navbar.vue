@@ -14,7 +14,7 @@
           <v-icon
           name="fa-shopping-cart"
           scale="2"
-            class=" text-3xl dark:text-gray-50 text-green-600"
+            class=" dark:text-gray-50 text-green-600"
           />
           <strong class="text-2xl font-medium dark:text-gray-50">fresh cart</strong>
         </router-link>

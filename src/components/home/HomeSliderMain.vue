@@ -2,8 +2,8 @@
   <section class="mt-20">
     <Carousel v-bind="carouselConfig">
       <Slide
-        v-for="category in useCategories.categories"
-        :key="category.id"
+        v-for="(category, index) in useCategories.categories"
+        :key="category._id"
         class="flex-col"
       >
         <div class="h-52 w-full">
