@@ -7,7 +7,8 @@
             @click="gotoSup(categories)"
             >
                 <div class="w-full h-60">
-                <img loading="lazy" class="w-full h-full" fetchpriority="high" :src="categories.image" :alt="categories._id">
+                <img loading="lazy" width="200"
+              height="250" class="w-full h-full" fetchpriority="high" :src="categories.image" :alt="categories._id">
                 </div>
                 <div class="text-black text-center dark:text-white">
                 <h1 class="py-4">{{ categories.name }}</h1>
