@@ -5,15 +5,18 @@
         <div
           class="flex items-center text-center md:text-start flex-col gap-5 md:flex-row max-xl:justify-center"
         >
-          <div class="img-box">
+          <div class="w-[80px] h-[80px] shrink-0">
             <img
               :src="item.product?.imageCover"
               loading="lazy"
-              alt="item.title"
-              class="h-full w-full rounded-xl object-cover"
+              :alt="item.product.title"
+              class="h-full w-full rounded-xl object-cover aspect-square"
+              height="80"
+              width="80"
+              decoding="async"
             />
           </div>
-          <div class="">
+          <div>
             <h6
               class="font-semibold text-sm dark:text-white leading-8 text-black line-clamp-1"
             >
@@ -89,9 +92,5 @@ const total = computed(() => {
 </script>
 
 <style scoped>
-.img-box {
-  height: 80px;
-  width: 80px;
-  flex-shrink: 0;
-}
+
 </style>

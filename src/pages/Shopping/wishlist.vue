@@ -20,12 +20,14 @@
             <div
               class="flex items-center text-center md:text-start flex-col md:flex-row gap-5 max-xl:justify-center"
             >
-              <div class="img-box">
+              <div class="w-[160px] h-[200px] aspect-[160/200]">
                 <img
                   :src="item.imageCover"
                   loading="lazy"
                   :alt="item.title"
-                  class="h-full w-full rounded-xl object-cover"
+                  height="200"
+                  width="160"
+                  class="h-full w-full rounded-xl object-cover aspect-[160/200]"
                 />
               </div>
               <div class="pro-data w-80">
@@ -86,9 +88,5 @@ onMounted(async () => {
 </script>
 
 <style scoped>
-.img-box {
-  height: 200px;
-  width: 160px;
-  flex-shrink: 0;
-}
+
 </style>

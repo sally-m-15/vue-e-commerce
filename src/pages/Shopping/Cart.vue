@@ -43,12 +43,15 @@
           <div
             class="flex items-center text-center md:text-start flex-col md:flex-row gap-5 max-xl:justify-center"
           >
-            <div class="img-box">
+            <div class="w-[160px] h-[200px] shrink-0">
               <img
                 :src="cart.product.imageCover"
                 loading="lazy"
                 :alt="cart.product.title"
-                class="h-full w-full rounded-xl object-cover"
+                height="200"
+              width="160"
+              decoding="async"
+                class="h-full w-full  rounded-xl object-cover aspect-[160/200]"
               />
             </div>
             <div class="pro-data w-80">
@@ -214,9 +217,5 @@ onMounted(async () => {
 </script>
 
 <style scoped>
-.img-box {
-  height: 200px;
-  width: 160px;
-  flex-shrink: 0;
-}
+
 </style>

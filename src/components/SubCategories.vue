@@ -33,9 +33,9 @@
         >
             <div class=" shadow-green-600 shadow-md
             md:shadow-none md:hover:shadow-green-600 md:hover:shadow-md cursor-pointer">
-            <div>
-                <img class="h-full w-full" loading="lazy" width="200"
-              height="250" :src="products.imageCover" :alt="products.title">
+            <div class="aspect-[412/466]">
+                <img class="h-full w-full object-cover aspect-[412/466]" loading="lazy" width="412" decoding="async"
+              height="466" :src="products.imageCover" :alt="products.title">
             </div>
                 <h3 class="text-black dark:text-white mt-2 line-clamp-1 ps-2">{{ products.title }}</h3>
                 <p class="text-green-500 ps-2 pb-2">{{ products.price }} EGP</p>

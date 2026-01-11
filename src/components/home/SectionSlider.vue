@@ -1,57 +1,62 @@
 <template>
   <section
-    class="flex-col items-center flex md:justify-center pt-36 md:flex-row "
+    class="flex justify-center"
   >
-    <div class="w-60 h-full">
-      <Carousel v-bind="carouselConfig" class="!h-full">
-        <Slide class="!h-full">
+  <div class="flex-col  w-md h-full items-stretch flex pt-36 md:flex-row"
+>
+    <div class="w-1/2 h-full">
+      <Carousel v-bind="carouselConfig" class="h-full">
+        <Slide class="aspect-[412/600]">
           <img
-            class="w-full"
-            src="../../assets/img/41nN4nvKaAL._AC_SY200_.jpg"
+            class="w-full h-full aspect-[412/466]"
+            src="/src/assets/img/41nN4nvKaAL._AC_SY200_.webp"
             alt="41nN4nvKaAL"
-            width="240" 
-            height="200"
+            width="412" 
+            height="600"
             fetchpriority="high"
           />
         </Slide>
-        <Slide class="!h-full">
+        <Slide class="aspect-[412/600]">
           <img
-            class="w-full"
+            class="w-full h-full aspect-[412/466] object-cover"
             loading="lazy"
-            src="../../assets/img/61cSNgtEISL._AC_SY200_.jpg"
+            src="/src/assets/img/61cSNgtEISL._AC_SY200_.webp"
             alt="61cSNgtEISL"
-            width="240"
-            height="152"
+            width="412"
+            height="466"
           />
         </Slide>
         <template #addons>
-          <div class="text-white pt-10">
+          <div class="text-white pt-8">
             <Pagination />
           </div>
         </template>
       </Carousel>
     </div>
-    <div class="flex items-center flex-col w-60">
-      <div>
+    <div class="flex flex-col w-1/2 bg-amber-700">
+      <div class=" w-full h-1/2 aspect-[412/300]">
         <img
-          src="../../assets/img/XCM_Manual_1533480_5305769_379x304_1X._SY304_CB616236518_.jpg"
+          src="../../assets/img/XCM_Manual_1533480_5305769_379x304_1X._SY304_CB616236518_.webp"
           alt="XCM_Manual"
-          width="240"
-      height="152"
+          width="412"
+      height="300"
       fetchpriority="high"
       decoding="async"
+      class="w-full h-full aspect-[412/300] object-cover"
         />
       </div>
-      <div>
+      <div class="w-full h-1/2 aspect-[412/300] ">
         <img
-          src="../../assets/img/XCM_Manual_1396328_4379575_Egypt_EG_BAU_GW_DC_SL_Bags_Wallets_379x304_1X._SY304_CB650636675_.jpg"
+          src="/src/assets/img/XCM_Manual_1396328_4379575_Egypt_EG_BAU_GW_DC_SL_Bags_Wallets_379x304_1X._SY304_CB650636675_.webp"
           alt="Bags"
-          width="240"
-      height="152"
+          width="412"
+      height="300"
       fetchpriority="high"
       decoding="async"
+      class="w-full h-full aspect-[412/300] object-cover"
         />
       </div>
+    </div>
     </div>
   </section>
 </template>
@@ -61,7 +66,7 @@ import { Carousel, Slide, Pagination } from "vue3-carousel";
 const carouselConfig = {
   itemsToShow: 1,
   wrapAround: true,
-  autoplay: 4000,
+  autoplay: 3000,
   transition: 800,
   pauseAutoplayOnHover: true,
 };

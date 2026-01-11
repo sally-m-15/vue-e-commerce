@@ -1,10 +1,11 @@
 <template>
 
     <section class="flex flex-col md:flex-row container mx-auto pt-28  md:items-center w-full p-4 gap-20 lg:justify-center px-20 md:px-0">
-        <div class=" w-full md:w-96 lg-1/3 mt-8 self-center">
+        <div class=" w-full md:w-96 lg-1/3 mt-8 self-center mb-10">
             <Carousel v-bind="carouselConfig">
-                <Slide v-for="img in details.product?.images" :key="img">
-                    <img class="w-full" loading="lazy" :src="img" alt="`${details.product?.title} image`"></img>
+                <Slide v-for="img in details.product?.images" :key="img" class="aspect-[412/466]">
+                    <img class="w-full object-cover aspect-[412/466]" loading="lazy"
+                    :src="img" height="466" width="412" :alt="`${details.product?.title}`"></img>
                 </Slide>
                 <template #addons>
                     <div class="pt-10">
@@ -14,8 +15,8 @@
             </Carousel>
         </div>
         <div class="gap-2 md:w-2/3 flex flex-col w-full">
-           <span class="flex justify-between dark:text-white">
-             <h2 class="text-3xl font-medium dark:text-white">{{ details.product?.title.split(' ').slice(0,2).join(' ') }}</h2>
+        <span class="flex justify-between dark:text-white">
+            <h2 class="text-3xl font-medium dark:text-white">{{ details.product?.title.split(' ').slice(0,2).join(' ') }}</h2>
             <button @click="addcart.goToCart" class="relative" v-if="details.product && addcart.getProductCount(details.product?.id) > 0" >
             <v-icon
             scale="1.5"
@@ -26,7 +27,7 @@
                 class="w-6 h-6 rounded-lg flex justify-center items-center bottom-4 start-2 bg-green-600 absolute text-sm font-stretch-normal text-white"
                 >{{ addcart.getProductCount(details.product?.id) }}</span>
             </button>
-           </span>
+        </span>
             <p class="dark:text-white pt-5">{{ details.product?.description }}</p>
                 <span class="flex justify-between mt-3 dark:text-white">
                 <p>{{ details.product?.price }} EGp</p>

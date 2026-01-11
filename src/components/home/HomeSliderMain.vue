@@ -6,14 +6,14 @@
         :key="category._id"
         class="flex-col"
       >
-        <div class="h-52 w-full">
+        <div class="h-52 w-full aspect-[412/466]">
           <img
-            class="h-full w-full  object-cover"
+            class="h-full w-full  object-cover aspect-[412/466]"
             :loading="index < 3 ? 'eager' : 'lazy'"
             :src="category.image"
             :alt="category.name"
-            width="150" 
-            height="208"
+            width="412" 
+            height="466"
           />
         </div>
         <h3 class="dark:text-white font-bold">{{ category.name }}</h3>
@@ -37,7 +37,7 @@ const useCategories = allCategoriesStore();
 
 const carouselConfig = {
   wrapAround: true,
-  autoplay: 3000,
+  autoplay: 2000,
   transition: 800,
   pauseAutoplayOnHover: true,
   breakpoints: {
