@@ -2,13 +2,13 @@
   <section
     class="flex justify-center"
   >
-  <div class="flex-col  w-md h-full items-stretch flex pt-36 md:flex-row"
+  <div class="flex-col w-full items-center max-w-md h-full md:items-stretch justify-center flex pt-36 md:flex-row"
 >
     <div class="w-1/2 h-full">
       <Carousel v-bind="carouselConfig" class="h-full">
         <Slide class="aspect-[412/600]">
           <img
-            class="w-full h-full aspect-[412/466]"
+            class="w-full h-full aspect-[412/600]"
             src="/src/assets/img/41nN4nvKaAL._AC_SY200_.webp"
             alt="41nN4nvKaAL"
             width="412" 
@@ -18,12 +18,12 @@
         </Slide>
         <Slide class="aspect-[412/600]">
           <img
-            class="w-full h-full aspect-[412/466] object-cover"
+            class="w-full h-full aspect-[412/600] object-cover"
             loading="lazy"
             src="/src/assets/img/61cSNgtEISL._AC_SY200_.webp"
             alt="61cSNgtEISL"
             width="412"
-            height="466"
+            height="600"
           />
         </Slide>
         <template #addons>

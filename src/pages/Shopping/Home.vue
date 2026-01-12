@@ -2,7 +2,9 @@
   <main class="min-h-screen relative">
     <section>
       <SectionSlider />
-      <HomeSliderMain />
+      <div class="min-h-[264px]">
+        <HomeSliderMain />
+      </div>
       <div class="min-h-[200px]">
         <SearchBar />
       </div>
