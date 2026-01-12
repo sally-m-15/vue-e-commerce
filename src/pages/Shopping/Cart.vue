@@ -51,7 +51,7 @@
                 height="200"
               width="160"
               decoding="async"
-                class="h-full w-full  rounded-xl object-cover aspect-[160/200]"
+                class="h-full w-full  rounded-xl object-cover aspect-square"
               />
             </div>
             <div class="pro-data w-80">

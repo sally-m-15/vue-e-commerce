@@ -14,15 +14,15 @@
         md:hover:shadow-green-600 md:hover:shadow-md py-5 px-3 transition-all duration-300 ease-in-out"
       >
         <div>
-          <div class="w-full h-64 overflow-hidden rounded-md bg-gray-100 aspect-[412/466]">
+          <div class="w-full h-64 overflow-hidden rounded-md bg-gray-100 aspect-[2160/1090]">
             <img 
               loading="lazy" 
               :src="product.imageCover" 
               :alt="product.title"
               decoding="async"
-              width="412"
-              height="466"
-              class="w-full h-full aspect-[412/466] object-cover mix-blend-multiply dark:mix-blend-normal" 
+              width="2160"
+              height="1090"
+              class="w-full h-full aspect-[2160/1090] object-cover mix-blend-multiply dark:mix-blend-normal" 
             />
           </div>
           <p class="mt-2 text-green-700 text-sm dark:text-green-500">

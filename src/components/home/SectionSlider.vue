@@ -6,25 +6,25 @@
 >
     <div class="w-1/2 h-full">
       <Carousel v-bind="carouselConfig" class="h-full">
-        <Slide class="aspect-[412/600]">
+        <Slide class="aspect-[2160/3200]">
           <img
-            class="w-full h-full aspect-[412/600]"
+            class="w-full h-full aspect-[2160/3200] object-cover"
             src="/src/assets/img/41nN4nvKaAL._AC_SY200_.webp"
             alt="41nN4nvKaAL"
-            width="412" 
-            height="600"
+            width="2160" 
+            height="3200"
             fetchpriority="high"
             decoding="async"
           />
         </Slide>
-        <Slide class="aspect-[412/600]">
+        <Slide class="aspect-[2160/3200]">
           <img
-            class="w-full h-full aspect-[412/600] object-cover"
+            class="w-full h-full aspect-[2160/3200] object-cover"
             loading="lazy"
             src="/src/assets/img/61cSNgtEISL._AC_SY200_.webp"
             alt="61cSNgtEISL"
-            width="412"
-            height="600"
+            width="2160"
+            height="3200"
             decoding="async"
           />
         </Slide>
@@ -36,26 +36,26 @@
       </Carousel>
     </div>
     <div class="flex flex-col w-1/2 bg-amber-700">
-      <div class=" w-full h-1/2 aspect-[412/300]">
+      <div class=" w-full h-1/2 aspect-[2160/1090]">
         <img
           src="../../assets/img/XCM_Manual_1533480_5305769_379x304_1X._SY304_CB616236518_.webp"
           alt="XCM_Manual"
-          width="412"
-      height="300"
+          width="2160"
+      height="1090"
       fetchpriority="high"
       decoding="async"
-      class="w-full h-full aspect-[412/300] object-cover"
+      class="w-full h-full aspect-[2160/1090] object-cover"
         />
       </div>
-      <div class="w-full h-1/2 aspect-[412/300] ">
+      <div class="w-full h-1/2 aspect-[2160/1090]">
         <img
           src="/src/assets/img/XCM_Manual_1396328_4379575_Egypt_EG_BAU_GW_DC_SL_Bags_Wallets_379x304_1X._SY304_CB650636675_.webp"
           alt="Bags"
-          width="412"
-      height="300"
+          width="2160"
+      height="1090"
       fetchpriority="high"
       decoding="async"
-      class="w-full h-full aspect-[412/300] object-cover"
+      class="w-full h-full aspect-[2160/1090] object-cover"
         />
       </div>
     </div>

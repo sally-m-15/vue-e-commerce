@@ -3,9 +3,9 @@
     <section class="flex flex-col md:flex-row container mx-auto pt-28  md:items-center w-full p-4 gap-20 lg:justify-center px-20 md:px-0">
         <div class=" w-full md:w-96 lg-1/3 mt-8 self-center mb-10">
             <Carousel v-bind="carouselConfig">
-                <Slide v-for="img in details.product?.images" :key="img" class="aspect-[412/466]">
-                    <img class="w-full object-cover aspect-[412/466]" loading="lazy" decoding="async"
-                    :src="img" height="466" width="412" :alt="`${details.product?.title}`"></img>
+                <Slide v-for="img in details.product?.images" :key="img" class="aspect-[2160/2500]">
+                    <img class="w-full object-cover aspect-[2160/2500]" loading="lazy" decoding="async"
+                    :src="img" height="2500" width="2160" :alt="`${details.product?.title}`"></img>
                 </Slide>
                 <template #addons>
                     <div class="pt-10">

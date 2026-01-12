@@ -6,9 +6,9 @@
             v-for="categories in allCategories.categories"
             @click="gotoSup(categories)"
             >
-                <div class="w-full h-60 aspect-[412/466]">
-                <img loading="lazy" width="412"
-              height="466" class="w-full h-full aspect-[412/466] object-cover" decoding="async" fetchpriority="high" :src="categories.image" :alt="categories._id">
+                <div class="w-full h-60 aspect-[2160/1090]">
+                <img loading="lazy" width="2160"
+              height="1090" class="w-full h-full aspect-[2160/1090] object-cover" decoding="async" fetchpriority="high" :src="categories.image" :alt="categories._id">
                 </div>
                 <div class="text-black text-center dark:text-white">
                 <h1 class="py-4">{{ categories.name }}</h1>

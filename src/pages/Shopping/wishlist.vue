@@ -27,7 +27,7 @@
                   :alt="item.title"
                   height="200"
                   width="160"
-                  class="h-full w-full rounded-xl object-cover aspect-[160/200]"
+                  class="h-full w-full rounded-xl object-cover aspect-square"
                   decoding="async"
                 />
               </div>

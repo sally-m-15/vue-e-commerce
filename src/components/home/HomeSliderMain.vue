@@ -6,14 +6,14 @@
         :key="category._id"
         class="flex-col"
       >
-        <div class="h-52 w-full aspect-[412/466]">
+        <div class="h-52 w-full aspect-[2160/1090]">
           <img
-            class="h-full w-full  object-cover aspect-[412/466]"
+            class="h-full w-full  object-cover aspect-[216/1090]"
             :loading="index < 3 ? 'eager' : 'lazy'"
             :src="category.image"
             :alt="category.name"
-            width="412" 
-            height="466"
+            width="2160" 
+            height="1090"
             decoding="async"
           />
         </div>
