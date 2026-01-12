@@ -67,7 +67,6 @@ import { onMounted } from 'vue';
 import { allProductsStore } from '../../api/products';
 import { useRoute } from 'vue-router';
 import { Carousel, Slide, Pagination } from 'vue3-carousel'
-import "vue3-carousel/carousel.css";
 import { useCartStore } from '@/api/cart';
 import { useWishlistStore } from '@/api/wishlist';
 
