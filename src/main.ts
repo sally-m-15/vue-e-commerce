@@ -4,6 +4,7 @@ import router from "./router";
 import "./assets/main.css";
 import { OhVueIcon, addIcons } from "oh-vue-icons";
 import { createPinia } from "pinia";
+import "vue3-carousel/carousel.css";
 import { injectSpeedInsights } from '@vercel/speed-insights';
 import "vue3-toastify/dist/index.css";
 import { allIcons } from "./icons/icon";
