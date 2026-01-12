@@ -1,4 +1,4 @@
-import{c as r,a as e,b as i}from"./yup-Cd09XHOC.js";import{h as o}from"./index-DVsPYvrM.js";import{c as n,r as c}from"./@vue-D9mJ_Nj9.js";const d=c(!1),l=r({name:e().required("name is required").min(3),email:e().required("email is required").matches(/^[^\s@]+@[^\s@]+\.[^\s@]+$/),password:e().required("password is required").matches(/^[A-Za-z][A-Za-z0-9]{5,8}$/,`must be
+import{c as r,a as e,b as i}from"./yup-Cd09XHOC.js";import{h as o}from"./index-B14j8qNa.js";import{c as n,r as c}from"./@vue-D9mJ_Nj9.js";const d=c(!1),l=r({name:e().required("name is required").min(3),email:e().required("email is required").matches(/^[^\s@]+@[^\s@]+\.[^\s@]+$/),password:e().required("password is required").matches(/^[A-Za-z][A-Za-z0-9]{5,8}$/,`must be
     * Start with a letter (either uppercase or lowercase).
     * Be between 6 and 9 characters in total.
     * Can only contain letters (A-Z or a-z) and numbers (0-9)
