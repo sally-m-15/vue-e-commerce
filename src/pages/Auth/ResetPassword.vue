@@ -85,10 +85,7 @@ import { ref } from "vue";
 import { useRouter } from "vue-router";
 import { hashData } from "@/composables/services/useAuthData";
 import { userSchema, isSchema } from "@/composables/services/useAuthSchema";
-import { addIcons } from "oh-vue-icons";
-import { FaRegularEye } from "oh-vue-icons/icons";
 
-addIcons(FaRegularEye);
 
 const router = useRouter();
 const isVisible = ref(false);

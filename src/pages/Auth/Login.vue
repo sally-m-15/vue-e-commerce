@@ -80,10 +80,7 @@ import { loginUserSchema } from "@/composables/services/useAuthSchema";
 import { useAuthStore } from "@/composables/services/useAuthApi";
 import { computed, onMounted } from "vue";
 import { useRouter } from "vue-router";
-import { addIcons } from "oh-vue-icons";
-import { FaRegularEye } from "oh-vue-icons/icons";
 
-addIcons(FaRegularEye);
 
 const { authData } = userData();
 const login = useAuthStore();

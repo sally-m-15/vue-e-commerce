@@ -73,10 +73,7 @@ import { onMounted, onUnmounted} from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { allCategoryIcons } from '@/icons/categoryIcons';
 import { allProductsStore } from '@/api/products';
-import { addIcons } from 'oh-vue-icons';
-import { allIcons } from '@/icons/icon';
 
-addIcons(...allIcons);
 const route = useRoute();
 const category = allCategoriesStore();
 const productStore = allProductsStore();

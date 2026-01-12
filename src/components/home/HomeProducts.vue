@@ -83,11 +83,6 @@ import { allProductsStore } from "@/api/products";
 import { useWishlistStore } from "@/api/wishlist";
 import { onMounted } from "vue";
 import { useRouter } from "vue-router";
-import { FaShoppingCart, FaStar, FaHeart } from "oh-vue-icons/icons";
-import { addIcons } from "oh-vue-icons";
-
-addIcons(FaShoppingCart, FaStar, FaHeart);
-
 
 const allProducts = allProductsStore();
 const router = useRouter();

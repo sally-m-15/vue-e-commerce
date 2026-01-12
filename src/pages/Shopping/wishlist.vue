@@ -77,12 +77,9 @@
 <script setup lang="ts">
 import { useCartStore } from "@/api/cart";
 import { useWishlistStore } from "@/api/wishlist";
-import { addIcons } from "oh-vue-icons";
-import { FaTrash } from "oh-vue-icons/icons";
 import { onMounted } from "vue";
 import { VueSpinnerClip } from "vue3-spinners";
 
-addIcons(FaTrash);
 
 const useWishList = useWishlistStore();
 const addcart = useCartStore();

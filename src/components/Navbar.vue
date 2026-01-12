@@ -117,11 +117,8 @@ import { darkMode, dark } from "@/composables/useDarkMode";
 import { useAuthStore } from "@/composables/services/useAuthApi";
 import { useCartStore } from "@/api/cart";
 import { navLinks } from "@/data/navLinks";
-import { addIcons } from "oh-vue-icons";
-import { FaBars, FaMoon, FaShoppingCart, FaSun } from "oh-vue-icons/icons";
 
 
-addIcons(FaShoppingCart, FaBars, FaSun, FaMoon);
 
 const menu = ref<boolean>(false);
 const userData = useAuthStore();

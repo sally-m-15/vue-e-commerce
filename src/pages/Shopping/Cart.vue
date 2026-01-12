@@ -198,13 +198,10 @@
 <script setup lang="ts">
 import { useCartStore } from "@/api/cart";
 import { useNavigation } from "@/composables/services/action";
-import { addIcons } from "oh-vue-icons";
-import { FaTrash } from "oh-vue-icons/icons";
 import { onMounted } from "vue";
 import { useRouter } from "vue-router";
 import { VueSpinnerClip } from "vue3-spinners";
 
-addIcons(FaTrash);
 
 const userCart = useCartStore();
 
