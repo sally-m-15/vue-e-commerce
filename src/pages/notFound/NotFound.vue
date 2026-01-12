@@ -40,7 +40,12 @@
   </section>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { addIcons } from 'oh-vue-icons';
+import { FaGithub } from 'oh-vue-icons/icons';
+
+  addIcons(FaGithub);
+</script>
 
 <style scoped>
 span {

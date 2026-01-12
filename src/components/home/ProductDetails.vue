@@ -11,7 +11,7 @@
                     <div class="pt-10">
                         <Pagination />
                     </div>
-            </template>F
+            </template>
             </Carousel>
         </div>
         <div class="gap-2 md:w-2/3 flex flex-col w-full">
@@ -66,15 +66,20 @@
 import { onMounted } from 'vue';
 import { allProductsStore } from '../../api/products';
 import { useRoute } from 'vue-router';
+import { FaShoppingCart, FaStar, FaHeart } from "oh-vue-icons/icons";
+import { Carousel, Slide, Pagination } from 'vue3-carousel'
+import "vue3-carousel/carousel.css";
+import { useCartStore } from '@/api/cart';
+import { useWishlistStore } from '@/api/wishlist';
+import { addIcons } from 'oh-vue-icons';
 
+addIcons(FaShoppingCart, FaStar, FaHeart);
 
 const route = useRoute();
 const details = allProductsStore();
 const addcart = useCartStore();
 
-import { Carousel, Slide, Pagination } from 'vue3-carousel'
-import { useCartStore } from '@/api/cart';
-import { useWishlistStore } from '@/api/wishlist';
+
 
 const userWishList = useWishlistStore();
 

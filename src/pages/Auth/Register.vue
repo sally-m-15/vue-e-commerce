@@ -69,6 +69,10 @@ import { userData } from "@/composables/services/useAuthData";
 import { registerUserSchema } from "@/composables/services/useAuthSchema";
 import { useAuthStore } from "@/composables/services/useAuthApi";
 import { onMounted } from "vue";
+import { addIcons } from "oh-vue-icons";
+import { FaRegularEye } from "oh-vue-icons/icons";
+
+addIcons(FaRegularEye);
 
 const { authData } = userData();
 const register = useAuthStore();

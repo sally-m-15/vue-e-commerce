@@ -38,7 +38,10 @@
 
 <script setup lang="ts">
 import { useNavigation } from "@/composables/services/action";
+import { addIcons } from "oh-vue-icons";
+import { FaCheck } from "oh-vue-icons/icons";
 
+addIcons(FaCheck);
 const { goToProducts } = useNavigation();
 </script>
 

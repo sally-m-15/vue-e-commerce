@@ -85,6 +85,10 @@ import { ref } from "vue";
 import { useRouter } from "vue-router";
 import { hashData } from "@/composables/services/useAuthData";
 import { userSchema, isSchema } from "@/composables/services/useAuthSchema";
+import { addIcons } from "oh-vue-icons";
+import { FaRegularEye } from "oh-vue-icons/icons";
+
+addIcons(FaRegularEye);
 
 const router = useRouter();
 const isVisible = ref(false);
@@ -97,7 +101,7 @@ function submitCheckout(values: any) {
     isVisible.value = true;
     isSchema.value = true;
   }
-}
+};
 
 async function restPassword(values: any) {
   const hashedNew = await hashData(values.password);
