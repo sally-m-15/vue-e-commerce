@@ -4,7 +4,7 @@
         <div class=" w-full md:w-96 lg-1/3 mt-8 self-center mb-10">
             <Carousel v-bind="carouselConfig">
                 <Slide v-for="img in details.product?.images" :key="img" class="aspect-[412/466]">
-                    <img class="w-full object-cover aspect-[412/466]" loading="lazy"
+                    <img class="w-full object-cover aspect-[412/466]" loading="lazy" decoding="async"
                     :src="img" height="466" width="412" :alt="`${details.product?.title}`"></img>
                 </Slide>
                 <template #addons>

@@ -14,6 +14,7 @@
             :alt="category.name"
             width="412" 
             height="466"
+            decoding="async"
           />
         </div>
         <h3 class="dark:text-white font-bold">{{ category.name }}</h3>

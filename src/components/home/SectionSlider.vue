@@ -14,6 +14,7 @@
             width="412" 
             height="600"
             fetchpriority="high"
+            decoding="async"
           />
         </Slide>
         <Slide class="aspect-[412/600]">
@@ -24,6 +25,7 @@
             alt="61cSNgtEISL"
             width="412"
             height="600"
+            decoding="async"
           />
         </Slide>
         <template #addons>

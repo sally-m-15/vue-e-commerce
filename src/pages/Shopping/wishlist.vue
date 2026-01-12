@@ -20,7 +20,7 @@
             <div
               class="flex items-center text-center md:text-start flex-col md:flex-row gap-5 max-xl:justify-center"
             >
-              <div class="w-[160px] h-[200px] aspect-[160/200]">
+              <div class="w-[160px] h-[200px]">
                 <img
                   :src="item.imageCover"
                   loading="lazy"
@@ -28,6 +28,7 @@
                   height="200"
                   width="160"
                   class="h-full w-full rounded-xl object-cover aspect-[160/200]"
+                  decoding="async"
                 />
               </div>
               <div class="pro-data w-80">
