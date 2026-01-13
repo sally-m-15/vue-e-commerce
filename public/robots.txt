@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://vue-e-commerce-six.vercel.app/sitemap.xml
