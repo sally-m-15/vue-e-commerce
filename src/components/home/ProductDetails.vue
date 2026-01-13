@@ -69,6 +69,7 @@ import { useRoute } from 'vue-router';
 import { Carousel, Slide, Pagination } from 'vue3-carousel'
 import { useCartStore } from '@/api/cart';
 import { useWishlistStore } from '@/api/wishlist';
+import "vue3-carousel/carousel.css";
 
 const route = useRoute();
 const details = allProductsStore();

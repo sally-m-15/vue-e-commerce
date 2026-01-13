@@ -33,6 +33,7 @@
 import { allCategoriesStore } from "@/api/categories";
 import { onMounted } from "vue";
 import { Carousel, Slide, Pagination, Navigation } from "vue3-carousel";
+import "vue3-carousel/carousel.css";
 
 
 const useCategories = allCategoriesStore();

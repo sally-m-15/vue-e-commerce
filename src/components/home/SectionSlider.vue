@@ -65,6 +65,7 @@
 
 <script setup lang="ts">
 import { Carousel, Slide, Pagination } from "vue3-carousel";
+import "vue3-carousel/carousel.css";
 
 const carouselConfig = {
   itemsToShow: 1,
