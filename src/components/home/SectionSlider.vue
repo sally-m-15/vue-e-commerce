@@ -2,7 +2,7 @@
   <section
     class="flex justify-center"
   >
-  <div class="flex-col w-full items-center max-w-md h-full md:items-stretch justify-center flex pt-36 md:flex-row"
+  <div class="flex-col w-full items-center max-w-lg h-full md:items-stretch justify-center flex pt-36 md:flex-row"
 >
     <div class="w-1/2 h-full">
       <Carousel v-bind="carouselConfig" class="h-full">
