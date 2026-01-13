@@ -35,7 +35,7 @@
         </template>
       </Carousel>
     </div>
-    <div class="flex flex-col w-1/2 bg-amber-700">
+    <div class="flex flex-col w-1/2 ">
       <div class=" w-full h-1/2 aspect-[2160/1090]">
         <img
           src="../../assets/img/XCM_Manual_1533480_5305769_379x304_1X._SY304_CB616236518_.webp"
