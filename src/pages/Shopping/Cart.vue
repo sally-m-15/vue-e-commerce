@@ -16,7 +16,7 @@
             <button
               v-if="userCart.cartItems.length > 0"
               @click="gotocheckout"
-              class="md:text-center text-white px-3 bg-green-600 cursor-pointer hover:bg-green-700 rounded-lg p-2"
+              class="md:text-center text-white px-3 bg-green-800 cursor-pointer hover:bg-green-700 rounded-lg p-2"
             >
               check out
             </button>
@@ -136,8 +136,8 @@
                 @click="
                   userCart.updateCartItems(cart.product._id, cart.count + 1, 'plus')
                 "
-                class="group rounded-lg px-2 py-3 border border-green-600 flex items-center justify-center shadow-sm shadow-transparent transition-all duration-500"
-                :class="userCart.updatingPlusId === cart.product._id ? 'bg-green-600 border-green-600 cursor-wait' : 'cursor-pointer border-green-600 hover:shadow-gray-200 hover:border-gray-300 hover:bg-gray-50'"
+                class="group rounded-lg px-2 py-3 border border-green-800 flex items-center justify-center shadow-sm shadow-transparent transition-all duration-500"
+                :class="userCart.updatingPlusId === cart.product._id ? 'bg-green-800 border-green-800 cursor-wait' : 'cursor-pointer border-green-800 hover:shadow-gray-200 hover:border-gray-300 hover:bg-gray-50'"
               >
                 <svg 
                   class="stroke-gray-900 transition-all dark:stroke-white duration-500 group-hover:stroke-black"
@@ -175,7 +175,7 @@
         <div v-if="userCart.cartItems.length > 0" class="text-center flex flex-col sm:flex-row py-10 justify-center gap-6">
           <button
           @click="goToProducts"
-            class="bg-green-600 cursor-pointer hover:bg-green-700 p-3 px-8 rounded-lg font-medium capitalize text-white"
+            class="bg-green-800 cursor-pointer hover:bg-green-700 p-3 px-8 rounded-lg font-medium capitalize text-white"
           >
             Continue Shopping
           </button>

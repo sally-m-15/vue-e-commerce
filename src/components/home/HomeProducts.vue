@@ -29,9 +29,9 @@
             {{ product.category.name }}
           </p>
           <span class="flex justify-between dark:text-white mt-4 ">
-            <h5 class="text-md font-medium dark:text-white line-clamp-1">
+            <h3 class="text-md font-medium dark:text-white line-clamp-1">
               {{ product.title }}
-            </h5>
+            </h3>
             <button @click.stop="postCart.goToCart()" class="relative" v-if="postCart.getProductCount(product.id) > 0" >
             <v-icon
             scale="1.5"
@@ -56,7 +56,7 @@
             <button
             :disabled="postCart.LoadingId === product.id"
               @click.stop="postCart.postCartItem(product.id)"
-              class="bg-green-600 hover:bg-green-700  rounded-xl block py-1"
+              class="bg-green-800 hover:bg-green-700 text-white font-medium rounded-xl block py-1"
               :class="postCart.LoadingId === product.id ? 'translate-y-0 loading-active px-4 md:px-10 opacity-100 cursor-wait' : 'cursor-pointer px-8 md:px-14'"
             >
             <span v-if="postCart.LoadingId === product.id">adding...</span>

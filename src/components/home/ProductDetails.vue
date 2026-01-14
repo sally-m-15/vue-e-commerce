@@ -16,7 +16,7 @@
         </div>
         <div class="gap-2 md:w-2/3 flex flex-col w-full">
         <span class="flex justify-between dark:text-white">
-            <h2 class="text-3xl font-medium dark:text-white">{{ details.product?.title.split(' ').slice(0,2).join(' ') }}</h2>
+            <h3 class="text-3xl font-medium dark:text-white">{{ details.product?.title.split(' ').slice(0,2).join(' ') }}</h3>
             <button @click="addcart.goToCart" class="relative" v-if="details.product && addcart.getProductCount(details.product?.id) > 0" >
             <v-icon
             scale="1.5"
@@ -42,7 +42,7 @@
                 <button  
                 @click="addcart.postCartItem(details.product?.id)"
                 :disabled="addcart.LoadingId === details.product?.id"
-                class="bg-green-600 hover:bg-green-700 px-14 rounded-md block cursor-pointer py-1 w-full"
+                class="bg-green-800 hover:bg-green-700 px-14 rounded-md block  text-white font-medium cursor-pointer py-1 w-full"
                 :class="addcart.LoadingId === details.product?.id? 'cursor-wait' : 'cursor-pointer'"
                 >
                 <span v-if="addcart.LoadingId === details.product?.id">adding...</span>

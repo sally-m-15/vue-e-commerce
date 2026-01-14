@@ -28,7 +28,7 @@
             class="text-gray-500 ms-auto block border p-2 px-4 text-xl rounded-xl my-12"
             :class="
               meta.valid
-                ? 'bg-green-700 hover:bg-green-800 text-white border-0'
+                ? 'bg-green-800 hover:bg-green-700 text-white border-0'
                 : 'bg-white'
             "
           >
@@ -68,7 +68,7 @@
             class="text-gray-500 ms-auto block border p-2 px-4 text-xl rounded-xl my-12"
             :class="
               meta.valid
-                ? 'bg-green-700 hover:bg-green-800 text-white border-0'
+                ? 'bg-green-800 hover:bg-green-700 text-white border-0'
                 : 'bg-white'
             "
           >

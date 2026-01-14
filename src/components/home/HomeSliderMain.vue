@@ -68,4 +68,8 @@ html.dark .carousel__pagination-button {
 html.dark .carousel__pagination-button--active {
   background-color: white;
 }
+.carousel__pagination-button {
+  padding: 3px;
+  margin: 0 2px;
+}
 </style>

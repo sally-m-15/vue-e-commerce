@@ -11,7 +11,7 @@
               height="1090" class="w-full h-full aspect-[2160/1090] object-cover" decoding="async" fetchpriority="high" :src="categories.image" :alt="categories._id">
                 </div>
                 <div class="text-black text-center dark:text-white">
-                <h1 class="py-4">{{ categories.name }}</h1>
+                <h3 class="py-4">{{ categories.name }}</h3>
             </div>
             </div>
         </div>

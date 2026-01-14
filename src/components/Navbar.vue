@@ -14,7 +14,7 @@
           <v-icon
           name="fa-shopping-cart"
           scale="2"
-            class=" dark:text-gray-50 text-green-600"
+            class=" dark:text-gray-50 text-green-800"
           />
           <strong class="text-2xl font-medium dark:text-gray-50">fresh cart</strong>
         </router-link>
@@ -74,7 +74,7 @@
               class="fa-cart-shopping text-2xl cursor-pointer dark:text-gray-50 text-gray-950"
             />
             <span
-                class="w-6 h-6 rounded-lg flex justify-center items-center bottom-4 start-5 bg-green-600 absolute text-sm font-stretch-normal text-white"
+                class="w-6 h-6 rounded-lg flex justify-center items-center bottom-4 start-5 bg-green-800 absolute text-sm font-stretch-normal text-white"
                 >{{ cartStore.numOfCartItems }}</span
               >
           </router-link>
@@ -151,8 +151,9 @@ onUnmounted(() => {
 <style>
 .router-link-exact-active {
   transition: all 0.2s ease-in;
-  background-color: #00a63e;
+  background-color: #016630;
   border-radius: 10px;
+  color: white !important;
   padding: 0 10px 3px;
   color: black;
 }

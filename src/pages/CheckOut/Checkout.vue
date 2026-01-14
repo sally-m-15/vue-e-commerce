@@ -64,7 +64,7 @@
               @click="paymentMethod = 'cash'"
               :class="
                 meta.valid
-                  ? 'bg-green-600 hover:bg-green-800 text-white border-0'
+                  ? 'bg-green-800 hover:bg-green-700 text-white border-0'
                   : 'bg-white'
               "
               class="px-4 text-xs cursor-pointer text-gray-500 border md:text-xl sm:px-10 rounded-xl py-2 xl:px-20"
@@ -75,7 +75,7 @@
               @click="paymentMethod = 'online'"
               :class="
                 meta.valid
-                  ? 'bg-green-600 hover:bg-green-800 text-white border-0'
+                  ? 'bg-green-800 hover:bg-green-700 text-white border-0'
                   : 'bg-white'
               "
               type="submit"

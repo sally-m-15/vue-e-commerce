@@ -66,7 +66,7 @@
     </div>
     <button
       @click="goToProducts"
-      class="text-white mt-20 text-xs sm:px-10 cursor-pointer bg-green-600 rounded-md py-2 px-4 xl:text-xl xl:px-20 block mx-auto hover:bg-green-700"
+      class="text-white mt-20 text-xs sm:px-10 cursor-pointer bg-green-800 rounded-md py-2 px-4 xl:text-xl xl:px-20 block mx-auto hover:bg-green-700"
     >
       Continue Shopping
     </button>
