@@ -1,7 +1,7 @@
 <template>
   <section class="container mx-auto w-full p-4 pb-20">
     <div
-      class="grid mx-5 xl:mx-0 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8 pt-6"
+      class="grid mx-5 xl:mx-0 grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 pt-6"
     >
       <div
         v-for="product in allProducts.filteredProducts"
@@ -57,7 +57,7 @@
             :disabled="postCart.LoadingId === product.id"
               @click.stop="postCart.postCartItem(product.id)"
               class="bg-green-800 hover:bg-green-700 text-white font-medium rounded-xl block py-1"
-              :class="postCart.LoadingId === product.id ? 'translate-y-0 loading-active px-4 md:px-10 opacity-100 cursor-wait' : 'cursor-pointer px-8 md:px-14'"
+              :class="postCart.LoadingId === product.id ? 'translate-y-0 loading-active px-4 md:px-10 opacity-100 cursor-wait' : 'cursor-pointer px-8 md:px-12'"
             >
             <span v-if="postCart.LoadingId === product.id">adding...</span>
             <span v-else>add</span>
