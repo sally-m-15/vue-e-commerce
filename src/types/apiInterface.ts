@@ -99,14 +99,6 @@ export interface WishlistProduct {
   price: number;
   imageCover: string;
 }
-
-export interface WishlistProduct {
-  _id: string;
-  title: string;
-  price: number;
-  imageCover: string;
-}
-
 export interface GetWishlistResponse {
   status: string;
   count: number;
