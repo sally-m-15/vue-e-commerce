@@ -1,6 +1,6 @@
 <template>
     <div class="container mx-auto py-36 relative">
-        <div class="grid mx-5 xl:mx-0 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-10 pt-6">
+        <div class="grid mx-5 xl:mx-0 grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-10 pt-6">
             <div class=" border rounded-lg dark:border-white border-gray-400  shadow-green-600 shadow-md
             md:shadow-none md:hover:shadow-green-600 md:hover:shadow-md cursor-pointer"
             v-for="brand in brandsStore.brands"
