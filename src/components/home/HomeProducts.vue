@@ -1,7 +1,7 @@
 <template>
   <section class="container mx-auto w-full p-4 pb-20">
     <div
-      class="grid mx-5 xl:mx-0 grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 pt-6"
+      class="grid mx-5 xl:mx-0 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8 pt-6"
     >
       <div
         v-for="product in allProducts.filteredProducts"

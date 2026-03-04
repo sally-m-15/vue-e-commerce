@@ -93,10 +93,28 @@ const filterUseData = computed(() => {
 });
 
 async function submitLogin(values: any) {
+  await login.loginUserValue(values);
+
+  if (!login.token) return;
+
+  const savedEmail = localStorage.getItem("email");
   const savedPasswordHash = localStorage.getItem("password");
   const inputPasswordHash = await hashData(values.password);
-  if (inputPasswordHash === savedPasswordHash) {
-    await login.loginUserValue(values);
+
+  if (
+    savedEmail === values.email &&
+    inputPasswordHash === savedPasswordHash
+  ) {
+    console.log("Local hash matched ✅");
+  }
+
+  const adminEmail = "sallyandfakhra@gmail.com";
+
+  if (login.user?.email === adminEmail) {
+    localStorage.setItem("userRule", "admin");
+    router.push({ name: "dashboard" });
+  } else {
+    localStorage.setItem("userRule", "user");
     router.push({ name: "home" });
   }
 }

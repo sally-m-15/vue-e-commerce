@@ -30,7 +30,7 @@
         </button>
       </div>
       <ul
-        v-if="userData.isloggedIn"
+        v-if="userData.isloggedIn && !route.path.startsWith('/admin')"
         class="gap-4 dark:text-gray-400 text-gray-700"
         :class="menu ? 'text-center flex flex-col' : 'hidden lg:flex'"
       >
@@ -61,7 +61,7 @@
             register
           </router-link>
         </li>
-        <li v-if="userData.isloggedIn">
+        <li v-if="userData.isloggedIn && !route.path.startsWith('/admin')">
           <router-link
             :exact-active-class="''"
             :to="{ name: 'cart' }"
@@ -117,12 +117,14 @@ import { darkMode, dark } from "@/composables/useDarkMode";
 import { useAuthStore } from "@/composables/services/useAuthApi";
 import { useCartStore } from "@/api/cart";
 import { navLinks } from "@/data/navLinks";
+import { useRoute } from "vue-router";
 
 
 
 const menu = ref<boolean>(false);
 const userData = useAuthStore();
 const cartStore = useCartStore();
+const route = useRoute();
 
 function toggleMenu() {
   menu.value = !menu.value;

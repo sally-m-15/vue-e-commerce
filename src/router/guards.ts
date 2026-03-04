@@ -79,12 +79,28 @@ export const routes = [
       },
     ],
   },
-
+  {
+    path: "/admin",
+    meta: {requiresAuth: true , isAdmin: true},
+    component: () => import("@/layout/AdminLayout.vue"),
+    children: [
+      {
+        path: "dashboard",
+        name: "dashboard",
+        component: () => import("@/pages/Admin/Dashboard.vue")
+      },
+      {
+        path: "ManageProducts",
+        name: "ManageProducts",
+        component: () => import("@/pages/Admin/ManageProducts.vue")
+      }
+    ]
+  },
   {
     path: "/allorder",
     name: "allorder",
     meta: { requiresAuth: true },
-    component: () => import("@components/AllOrders.vue"),
+    component: () => import("@/components/AllOrders.vue"),
   },
   {
     path: "/:notFound(.*)*",

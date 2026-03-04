@@ -25,11 +25,12 @@ export const useAuthStore = defineStore("auth", () => {
       const phoneToHash = await hashData(values.phone);
       const passwordToHash = await hashData(values.password);
       localStorage.setItem("phone", phoneToHash);
+      localStorage.setItem("email", values.email);
       localStorage.setItem("password", passwordToHash);
       localStorage.setItem("token", res.data.token);
       localStorage.setItem("user", JSON.stringify(res.data.user));
       user.value = res.data.user;
-       token.value = res.data.token;
+      token.value = res.data.token;
       router.push({ name: "home" });
     } catch (error: any) {
       if (error.response?.status === 409) {
