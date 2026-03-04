@@ -5,7 +5,7 @@ import vue from "@vitejs/plugin-vue";
 import vueDevTools from "vite-plugin-vue-devtools";
 import tailwindcss from "@tailwindcss/vite";
 
-const isGitHubPages = process.env.NODE_ENV === 'production' && !process.env.VERCEL;
+const isGitHubPages =  !process.env.VERCEL;
 // https://vite.dev/config/
 export default defineConfig({
   base: isGitHubPages ? '/vue-e-commerce/' : '/',
