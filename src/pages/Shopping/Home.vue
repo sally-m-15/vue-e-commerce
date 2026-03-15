@@ -22,10 +22,10 @@ import { allProductsStore } from "@/api/products";
 import { defineAsyncComponent } from "vue";
 import { VueSpinnerClip } from "vue3-spinners";
 
-const HomeProducts = defineAsyncComponent(()=> import("@components/home/HomeProducts.vue"));
-const SearchBar = defineAsyncComponent(()=> import("@components/home/SearchBar.vue"));
-const SectionSlider = defineAsyncComponent(()=> import('@components/home/SectionSlider.vue'));
-const HomeSliderMain = defineAsyncComponent(()=> import("@components/home/HomeSliderMain.vue"));
+const HomeProducts = defineAsyncComponent(()=> import("@components/user/home/HomeProducts.vue"));
+const SearchBar = defineAsyncComponent(()=> import("@components/user/home/SearchBar.vue"));
+const SectionSlider = defineAsyncComponent(()=> import('@components/user/home/SectionSlider.vue'));
+const HomeSliderMain = defineAsyncComponent(()=> import("@components/user/home/HomeSliderMain.vue"));
 const allProducts = allProductsStore();
 </script>
 

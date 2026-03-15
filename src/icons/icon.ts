@@ -64,12 +64,14 @@ FaGhost,
 FaVolumeUp,
 FaTicketAlt,
 FaLaptop,
-FaSatelliteDish
+FaSatelliteDish,
+FaUserFriends
 } from "oh-vue-icons/icons/fa"; 
 
 export const allIcons = [
 FaRegularEye, 
   FaShoppingCart,
+  FaUserFriends,
   FaSun, 
   FaMoon, 
   FaHeart, 

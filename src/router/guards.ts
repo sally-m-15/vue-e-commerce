@@ -33,7 +33,7 @@ export const routes = [
         path: "productDetails/:id",
         name: "productDetails",
         meta: { requiresAuth: true },
-        component: () => import("@/components/home/ProductDetails.vue"),
+        component: () => import("@/components/user/home/ProductDetails.vue"),
       },
       {
         path: "wishList",
@@ -69,7 +69,7 @@ export const routes = [
         path: 'subCategories/:id',
         name: 'subCategories',
         meta: {requiresAuth: true},
-        component: ()=> import('@/components/SubCategories.vue')
+        component: ()=> import('@/components/user/SubCategories.vue')
       },
       {
         path: "brands",
@@ -80,27 +80,10 @@ export const routes = [
     ],
   },
   {
-    path: "/admin",
-    meta: {requiresAuth: true , isAdmin: true},
-    component: () => import("@/layout/AdminLayout.vue"),
-    children: [
-      {
-        path: "dashboard",
-        name: "dashboard",
-        component: () => import("@/pages/Admin/Dashboard.vue")
-      },
-      {
-        path: "ManageProducts",
-        name: "ManageProducts",
-        component: () => import("@/pages/Admin/ManageProducts.vue")
-      }
-    ]
-  },
-  {
     path: "/allorder",
     name: "allorder",
     meta: { requiresAuth: true },
-    component: () => import("@/components/AllOrders.vue"),
+    component: () => import("@/components/user/AllOrders.vue"),
   },
   {
     path: "/:notFound(.*)*",

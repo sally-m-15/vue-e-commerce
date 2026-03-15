@@ -16,8 +16,8 @@
 import { allProductsStore } from "@/api/products";
 import { defineAsyncComponent } from "vue";
 
-const HomeProducts = defineAsyncComponent(()=> import("@components/home/HomeProducts.vue"));
-const SearchBar = defineAsyncComponent(()=> import("@components/home/SearchBar.vue"));
+const HomeProducts = defineAsyncComponent(()=> import("@components/user/home/HomeProducts.vue"));
+const SearchBar = defineAsyncComponent(()=> import("@components/user/home/SearchBar.vue"));
 
 const allProducts = allProductsStore();
 

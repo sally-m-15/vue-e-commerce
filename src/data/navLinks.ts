@@ -1,7 +1,4 @@
-export interface NavLink {
-    name: string,
-    routeName: string
-};
+import type { NavLink } from "@/types/userInterface"
 
 export const navLinks: NavLink[] = [
     {name: 'home', routeName: 'home'},

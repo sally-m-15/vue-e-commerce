@@ -19,3 +19,7 @@ export interface CheckoutField {
   type: "text" | "tel" | "select";
   options?: string[];
 }
+export interface NavLink {
+    name: string,
+    routeName: string
+};

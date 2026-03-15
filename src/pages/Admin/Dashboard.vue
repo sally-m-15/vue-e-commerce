@@ -1,10 +1,12 @@
 <template>
-    <div>
-        مرحبًا بك في لوحة الإدارة 
-    </div>
+<main class="text-white">
+    <AdminHome />
+</main>
 </template>
 
 <script setup lang="ts">
+import AdminHome from '@/components/admin/adminHome.vue';
+
 
 </script>
 

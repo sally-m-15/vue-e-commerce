@@ -64,7 +64,7 @@
 
 <script setup>
 import { onMounted } from 'vue';
-import { allProductsStore } from '../../api/products';
+import { allProductsStore } from '@/api/products';
 import { useRoute } from 'vue-router';
 import { Carousel, Slide, Pagination } from 'vue3-carousel'
 import { useCartStore } from '@/api/cart';
