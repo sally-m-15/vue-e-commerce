@@ -1,5 +1,5 @@
 <template>
-  <header class="dark:bg-gray-900 bg-gray-100 fixed top-0 start-0 z-10 w-full">
+  <header class="dark:bg-gray-900 border-b border-gray-950 bg-gray-100 fixed top-0 start-0 z-10 w-full">
     <nav
       class="container mx-auto py-5 w-full dark:bg-gray-900 bg-gray-100"
       :class="!menu ? 'lg:flex md:justify-between lg:items-center' : ''"

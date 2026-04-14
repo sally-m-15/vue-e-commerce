@@ -4,7 +4,7 @@
             <nav>
                 <ul class="py-12 px-6">
                     <li class="pt-4" v-for="admin in adminNavLinks" :key="admin.name">
-                        <router-link :to="admin.routeName">{{ admin.name }}</router-link></li>
+                        <router-link :to="admin.routeName" class=" dark:text-white">{{ admin.name }}</router-link></li>
                 </ul>
             </nav>
         </div>

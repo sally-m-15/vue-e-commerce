@@ -1,5 +1,5 @@
 <template>
-  <section class="container mx-auto w-full p-4 pb-20">
+  <section class="container mx-auto px-16 w-full p-4 pb-20">
     <div
       class="grid mx-5 xl:mx-0 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8 pt-6"
     >
@@ -100,6 +100,9 @@ onMounted(() => {
 </script>
 
 <style scoped>
+img {
+  filter: brightness(0.9) contrast(1.2);
+}
 @media (min-width: 768px) {
   button:not(.loading-active) {
     transition: all 0.5s ease-in-out;
