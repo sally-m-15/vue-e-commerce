@@ -1,5 +1,5 @@
 <template>
-    <main class="mx-8">
+    <div>
         <h1>Dashboard</h1>
         <div class="pt-5 flex gap-6 w-full"
         >
@@ -19,7 +19,7 @@
     </div>  
     </div>
         </div>
-    </main>
+    </div>
 </template>
 
 <script setup lang="ts">
@@ -36,7 +36,7 @@ const updateChart = computed(() => {
         if (chart.title === 'Todays Sales') {
             return { ...chart, totalSales: todaySales.salesitems + ' items',
 
-                 series: [todaySales.todaysSales],
+            series: [todaySales.todaysSales],
              };
         }else if (chart.title === 'Todays Revenue') {
             return { ...chart, totalSales: todaySales.totaleRevenue.toLocaleString() + ' EGP',
@@ -97,8 +97,8 @@ const updatedOptions = JSON.parse(JSON.stringify(chartOptions.value));
     return updatedOptions;
     };
 
-    onMounted(() => {
-        todaySales.fetchSalesData();
+    onMounted( async () => {
+       await todaySales.fetchSalesData();
     })
 </script>
 

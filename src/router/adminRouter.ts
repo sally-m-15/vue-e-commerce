@@ -2,7 +2,7 @@ export const adminRoutes = [
     {
         path: "/admin",
         component: () => import("@/layout/AdminLayout.vue"),
-        redirect: "{name: 'dashboard'}",
+        redirect: {name: 'dashboard'},
         children: [
             {
                 path: "dashboard",

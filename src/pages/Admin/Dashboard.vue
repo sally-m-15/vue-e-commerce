@@ -1,11 +1,12 @@
 <template>
 <main class="text-white">
-    <AdminHome />
+    <Homeview />
 </main>
 </template>
 
 <script setup lang="ts">
-import AdminHome from '@/components/admin/adminHome.vue';
+import Homeview from '@/components/admin/Home/Homeview.vue';
+
 
 
 </script>

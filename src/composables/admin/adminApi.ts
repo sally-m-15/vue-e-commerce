@@ -7,8 +7,11 @@ export const useAdminApiStore = defineStore('adminApi',() => {
     const target = ref<number>(60);
     const allOrders = ref<any[]>([]);
     const totaleRevenue = ref<number>(0);
-    const revenueTarget = ref<number>(350000);
+    const revenueTarget = ref<number>(300000);
     const inEscrow = ref<number>(0);
+    const monthlySales = ref<number[]>(new Array(12).fill(0));
+    const topProducts = ref<any[]>([]);
+
 
     const todaysSales = computed(()=> {
         return Math.min(Math.round((salesitems.value / target.value) * 100), 100);
@@ -18,28 +21,49 @@ export const useAdminApiStore = defineStore('adminApi',() => {
         return Math.min(Math.round((totaleRevenue.value / revenueTarget.value) * 100), 100);
     });
 
-    async function fetchSalesData() {
+async function fetchSalesData() {
     try {
         const res = await api.get('/orders');
-        allOrders.value = res.data.data;
-        salesitems.value = allOrders.value.length;
+        const orders = res.data.data || [];
 
-        totaleRevenue.value = allOrders.value.reduce((acc, order) => {
-            return acc + (order.totalOrderPrice || 0);
-        }, 0);
+        
+        allOrders.value = orders;
+        salesitems.value = orders.length;
 
-        inEscrow.value = allOrders.value.reduce((acc, order)=> {
-            if (order.isPaid && !order.isDelivered) { 
-        return acc + order.totalOrderPrice;
-    }
+        
+        totaleRevenue.value = orders.reduce((acc: number, item: any) => acc + (item.totalOrderPrice || 0), 0);
+
+        
+        inEscrow.value = orders.reduce((acc: number, item: any) => {
+            if (item.isPaid && !item.isDelivered) {
+                return acc + item.totalOrderPrice;
+            }
             return acc;
         }, 0);
 
-        console.log("Total Revenue Calculated:", totaleRevenue.value, );
+        const salesByMonth = new Array(12).fill(0);
+        orders.forEach((order: any) => {
+            const month = new Date(order.createdAt).getMonth();
+            salesByMonth[month] += order.totalOrderPrice;
+        });
+        monthlySales.value = salesByMonth;
+
+        const productCount: Record<string, number> = {};
+        orders.forEach((order: any) => {
+            order.cartItems?.forEach((item: any) => {
+                const title = item.product.title.split(' ').slice(0, 2).join(' ');
+                productCount[title] = (productCount[title] || 0) + item.count;
+            });
+        });
+
+        topProducts.value = Object.entries(productCount)
+            .map(([name, count]) => ({ name, count }))
+            .sort((a, b) => b.count - a.count)
+            .slice(0, 5);
 
     } catch (err) {
         handleApiError(err);
     }
 }
-    return { salesitems, target, allOrders, todaysSales,revenueProgress,totaleRevenue, revenueTarget ,inEscrow ,fetchSalesData }
+    return { salesitems, target, allOrders, todaysSales,revenueProgress,totaleRevenue, revenueTarget ,inEscrow ,monthlySales,topProducts,fetchSalesData }
 });

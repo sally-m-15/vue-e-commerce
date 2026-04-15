@@ -1,8 +1,8 @@
 <template>
     <aside>
-        <div class=" bg-gray-900 w-50 rounded-xl h-[460px]">
+        <div class=" bg-gray-900 h-screen w-50 rounded-xl border border-gray-500">
             <nav>
-                <ul class="py-12 px-6">
+                <ul class="py-2 px-6">
                     <li class="pt-4" v-for="admin in adminNavLinks" :key="admin.name">
                         <router-link :to="admin.routeName" class=" dark:text-white">{{ admin.name }}</router-link></li>
                 </ul>
