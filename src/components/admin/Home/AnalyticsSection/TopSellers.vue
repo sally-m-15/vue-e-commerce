@@ -1,6 +1,7 @@
 <template>
     <div>
         <apexchart 
+    :key="dark ? 'dark-mode' : 'light-mode'"
       type="bar" 
       height="300" 
       :options="chartOptions" 
@@ -26,7 +27,7 @@ const series = computed(() => [{
 const chartOptions = computed<any>(() => ({
     chart: {
         type: 'bar',
-        background: '#101828',
+        background: dark.value ? '#101828' : '#ffffff',
         toolbar: { show: false },
     },
     theme: {

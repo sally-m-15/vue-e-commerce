@@ -1,8 +1,8 @@
 <template>
    <Navbar />
-  <main class="container pt-14 mt-12 bg-gray-800 flex gap-6 mx-auto">
+  <main class="container pt-14 mt-12 dark:bg-gray-800 flex gap-6 mx-auto">
       <AdminSidebar />
-      <div class="flex-1 w-[80%]  bg-gray-800 pt-5 rounded-xl border border-gray-500">
+      <div class="flex-1 w-[80%]  bg-gray-100 dark:bg-gray-800 pt-5 rounded-xl border border-gray-500">
         <router-view />
       </div>
   </main>

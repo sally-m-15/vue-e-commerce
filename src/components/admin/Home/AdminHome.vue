@@ -1,12 +1,12 @@
 <template>
     <div>
-        <h1>Dashboard</h1>
+        <h1 class="dark:text-gray-200 text-black text-2xl font-bold">Dashboard</h1>
         <div class="pt-5 flex gap-6 w-full"
         >
         <div  v-for="chart in updateChart"
-        :key="chart.id" class=" bg-gray-900  w-full flex items-center justify-between px-3 py-3">
+        :key="chart.id" class=" dark:bg-gray-900 bg-white text-black dark:text-gray-200  w-full flex items-center justify-between px-3 py-3">
                 <div class="ps-1">
-                    <h2 class="text-gray-200">{{ chart.title }}</h2>
+                    <h2 class="dark:text-gray-200 text-gray-800">{{ chart.title }}</h2>
                     <h2 class="font-bold text-2xl py-2"> <span> {{ chart.totalSales }} </span></h2>
                 </div>
     <div>
@@ -26,6 +26,7 @@
 import { computed, defineAsyncComponent, onMounted, ref } from 'vue'
 import {adminChart} from '@/composables/admin/adminChart'
 import { useAdminApiStore } from '@/composables/admin/adminApi';
+import { dark } from '@/composables/useDarkMode';
 
 const todaySales = useAdminApiStore();
 
@@ -53,7 +54,7 @@ const updateChart = computed(() => {
     })
 })
 
-const chartOptions = ref<any>({
+const chartOptions = computed(() => ({
     chart: {
         type: 'radialBar',
         sparkline: { enabled: true } 
@@ -62,40 +63,39 @@ const chartOptions = ref<any>({
     plotOptions: {
         radialBar: {
             hollow: {
-            size: '45%',
-            background: '#101828',
+                size: '45%',
+                background: dark.value ? '#101828' : '#ffffff',
             }, 
             
             dataLabels: {
                 name: { show: false },
                 value: {
                     offsetY: 4,
-                    fontSize: '8px',
+                    fontSize: '12px',
                     color: '#169BFF'
                 }
             },
             track: {
-                
+                background: dark.value ? '#334155' : '#CBD5E1',
                 margin: 0,
                 strokeWidth: '100%' 
             }
         }
     },
     colors: ['#0050F0']
-});
+}));
 
 const getChartData = (seriesValue: number[]) => {
     const value = seriesValue[0] ?? 0;
     const statusColor = value > 50 ? '#0050f0' : '#EF4444';
 
-if (!chartOptions.value) return {};
-
-const updatedOptions = JSON.parse(JSON.stringify(chartOptions.value));
+    const updatedOptions = JSON.parse(JSON.stringify(chartOptions.value));
+    
     updatedOptions.plotOptions.radialBar.dataLabels.value.color = statusColor;
     updatedOptions.colors = [statusColor];
 
     return updatedOptions;
-    };
+};
 
     onMounted( async () => {
        await todaySales.fetchSalesData();

@@ -1,6 +1,6 @@
 <template>
     <aside>
-        <div class=" bg-gray-900 h-screen w-50 rounded-xl border border-gray-500">
+        <div class=" bg-gray-100 dark:bg-gray-800 h-screen w-50 rounded-xl border border-gray-500">
             <nav>
                 <ul class="py-2 px-6">
                     <li class="pt-4" v-for="admin in adminNavLinks" :key="admin.name">

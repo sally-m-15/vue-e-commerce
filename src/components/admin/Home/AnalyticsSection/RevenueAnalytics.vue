@@ -1,6 +1,7 @@
 <template>
     <div>
         <apexchart 
+        :key="dark ? 'dark-mode' : 'light-mode'"
       type="bar" 
       height="300" 
       :options="chartOptions" 
@@ -20,7 +21,7 @@ const adminStore = useAdminApiStore();
       await adminStore.fetchSalesData();
     });
 
-const series = computed(() => {
+const series = computed<any>(() => {
     const manualData = [100000, 70000, 80000];
     const dynamicData = adminStore.monthlySales.slice(3);
 
@@ -34,7 +35,7 @@ const chartOptions = computed<any>(() => ({
     chart: {
         type: 'bar',
         toolbar: { show: false },
-        background: '#101828',
+        background: dark.value ? '#101828' : '#ffffff',
     }, 
     theme: {
         mode: dark.value ? 'dark' : 'light' 
