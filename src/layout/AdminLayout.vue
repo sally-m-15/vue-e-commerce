@@ -9,7 +9,7 @@
 </template>
 
 <script setup lang="ts">
-import AdminSidebar from "@/components/admin/AdminSidebar.vue";
+import AdminSidebar from "@/components/admin/adminSidebar.vue";
 import Navbar from "@/components/user/Navbar.vue";
 </script>
 
