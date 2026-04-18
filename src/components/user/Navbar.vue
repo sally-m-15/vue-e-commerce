@@ -1,5 +1,7 @@
 <template>
-  <header class="dark:bg-gray-900  bg-gray-100 fixed top-0 start-0 z-10 w-full">
+  <header 
+  v-if="!route.path.startsWith('/admin')"
+  class="dark:bg-gray-900  bg-gray-100 fixed top-0 start-0 z-10 w-full">
     <nav
       class="container mx-auto py-5 w-full dark:bg-gray-900 bg-gray-100"
       :class="!menu ? 'lg:flex md:justify-between lg:items-center' : ''"
@@ -30,7 +32,7 @@
         </button>
       </div>
       <ul
-        v-if="userData.isloggedIn && !route.path.startsWith('/admin')"
+        v-if="userData.isloggedIn"
         class="gap-4 dark:text-gray-400 text-gray-700"
         :class="menu ? 'text-center flex flex-col' : 'hidden lg:flex'"
       >
@@ -61,7 +63,7 @@
             register
           </router-link>
         </li>
-        <li v-if="userData.isloggedIn && !route.path.startsWith('/admin')">
+        <li v-if="userData.isloggedIn">
           <router-link
             :exact-active-class="''"
             :to="{ name: 'cart' }"

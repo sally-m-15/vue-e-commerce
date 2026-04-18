@@ -10,8 +10,24 @@ export const adminRoutes = [
                 component: () => import("@/pages/Admin/Dashboard.vue")
             },
             {
-                path: "manage-products",
-                name: "manage-products",
+                path: 'statistics',
+                name: 'statistics',
+                component: () => import("@/pages/Admin/Statistics.vue")
+            },
+            {
+                path: 'payments',
+                name: 'payments',
+                component: () => import("@/pages/Admin/Payments.vue")
+
+            },
+            {
+                path: 'transactions',
+                name: 'transactions',
+                component: () => import("@/pages/Admin/Transactions.vue")
+            },
+            {
+                path: "products",
+                name: "products",
                 component: () => import("@/pages/Admin/ManageProducts.vue")
             },
             {
@@ -23,6 +39,16 @@ export const adminRoutes = [
                 path: "orders",
                 name: "orders",
                 component: () => import("@/pages/Admin/Order.vue")
+            },
+            {
+                path: "messages",
+                name: "messages",
+                component: () => import("@/pages/Admin/Messages.vue")
+            },
+            {
+                path: "settings",
+                name: "settings",
+                component: () => import("@/pages/Admin/Settings.vue")
             }
         ]
     }

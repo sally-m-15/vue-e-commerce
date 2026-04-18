@@ -1,5 +1,5 @@
 <template>
-    <main class="mx-8 bg-gray-100 dark:bg-gray-800">
+    <main class="mx-8 mt-6 bg-gray-100 dark:bg-gray-800">
         <AdminHome />
         <AnalyticsSection />
     </main>

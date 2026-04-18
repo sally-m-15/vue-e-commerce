@@ -65,7 +65,15 @@ FaVolumeUp,
 FaTicketAlt,
 FaLaptop,
 FaSatelliteDish,
-FaUserFriends
+FaUserFriends,
+FaColumns,
+FaChartBar,
+FaMoneyBill,
+FaExchangeAlt,
+FaUsers,
+FaComments,
+FaCog,
+FaSignOutAlt
 } from "oh-vue-icons/icons/fa"; 
 
 export const allIcons = [
@@ -136,4 +144,13 @@ FaLaptop,
 FaSatelliteDish,
 FaThLarge,
 FaBoxOpen,
+FaColumns,
+FaChartBar,
+FaMoneyBill,
+FaExchangeAlt,
+FaUsers,
+FaComments,
+FaCog,
+FaSignOutAlt
+
 ];

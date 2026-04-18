@@ -18,8 +18,15 @@ const apexchart = defineAsyncComponent(() => import('vue3-apexcharts'));
 const adminStore = useAdminApiStore();
 
   onMounted(async () => {
+    const [start, end] = adminStore.selectedDate;
+    if (start && end) {
+     const startDate = start.toISOString().split('T')[0];
+     const endDate = end.toISOString().split('T')[0];
+     await adminStore.fetchSalesData(startDate, endDate);
+  } else {
       await adminStore.fetchSalesData();
-    });
+    }
+});
 
 const series = computed<any>(() => {
     const manualData = [100000, 70000, 80000];

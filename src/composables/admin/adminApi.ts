@@ -11,6 +11,7 @@ export const useAdminApiStore = defineStore('adminApi',() => {
     const inEscrow = ref<number>(0);
     const monthlySales = ref<number[]>(new Array(12).fill(0));
     const topProducts = ref<any[]>([]);
+    const selectedDate = ref<Date[]>([new Date(), new Date()]);
 
 
     const todaysSales = computed(()=> {
@@ -21,11 +22,14 @@ export const useAdminApiStore = defineStore('adminApi',() => {
         return Math.min(Math.round((totaleRevenue.value / revenueTarget.value) * 100), 100);
     });
 
-async function fetchSalesData() {
+async function fetchSalesData(startDate?: string, endDate?: string) {
     try {
-        const res = await api.get('/orders');
+        let url = `/orders`;
+        if (startDate && endDate) {
+            url += `?startDate=${startDate}&endDate=${endDate}`;
+        }
+        const res = await api.get(url);
         const orders = res.data.data || [];
-
         
         allOrders.value = orders;
         salesitems.value = orders.length;
@@ -65,5 +69,5 @@ async function fetchSalesData() {
         handleApiError(err);
     }
 }
-    return { salesitems, target, allOrders, todaysSales,revenueProgress,totaleRevenue, revenueTarget ,inEscrow ,monthlySales,topProducts,fetchSalesData }
+    return { salesitems, target, allOrders, todaysSales,revenueProgress,selectedDate,totaleRevenue, revenueTarget ,inEscrow ,monthlySales,topProducts,fetchSalesData }
 });

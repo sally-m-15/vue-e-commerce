@@ -1,9 +1,9 @@
 <template>
     <div class="flex gap-6 mt-6">
-        <div class="w-2xl">
+        <div class="w-[800px]">
             <RevenueAnalytics />
         </div>
-        <div class="w-xs">
+        <div class="w-sm">
             <TopSellers />
         </div>
     </div>

@@ -1,10 +1,8 @@
 <template>
-    <div>
-        <h1 class="dark:text-gray-200 text-black text-2xl font-bold">Dashboard</h1>
-        <div class="pt-5 flex gap-6 w-full"
+        <div class="flex gap-6"
         >
         <div  v-for="chart in updateChart"
-        :key="chart.id" class=" dark:bg-gray-900 bg-white text-black dark:text-gray-200  w-full flex items-center justify-between px-3 py-3">
+        :key="chart.id" class=" dark:bg-gray-900 bg-white text-black dark:text-gray-200 w-full flex items-center justify-between px-3 py-3">
                 <div class="ps-1">
                     <h2 class="dark:text-gray-200 text-gray-800">{{ chart.title }}</h2>
                     <h2 class="font-bold text-2xl py-2"> <span> {{ chart.totalSales }} </span></h2>
@@ -19,7 +17,6 @@
     </div>  
     </div>
         </div>
-    </div>
 </template>
 
 <script setup lang="ts">

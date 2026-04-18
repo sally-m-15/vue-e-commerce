@@ -1,16 +1,16 @@
 <template>
-   <Navbar />
-  <main class="container pt-14 mt-12 dark:bg-gray-800 flex gap-6 mx-auto">
+  <main class="flex gap-2 bg-gray-100 dark:bg-gray-800">
       <AdminSidebar />
-      <div class="flex-1 w-[80%]  bg-gray-100 dark:bg-gray-800 pt-5 rounded-xl border border-gray-500">
+      <div class="flex-1 w-[80%]  bg-gray-100 dark:bg-gray-800">
+         <AdminNavbar />
         <router-view />
       </div>
   </main>
 </template>
 
 <script setup lang="ts">
+import AdminNavbar from "@/components/admin/AdminNavbar.vue";
 import AdminSidebar from "@/components/admin/adminSidebar.vue";
-import Navbar from "@/components/user/Navbar.vue";
 </script>
 
 <style scoped>
