@@ -22,5 +22,5 @@ export interface CheckoutField {
 export interface NavLink {
     name: string,
     routeName: string,
-    icon: string
+    icon?: string
 };
